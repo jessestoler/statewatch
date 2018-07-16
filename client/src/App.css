@@ -1,14 +1,6 @@
+
+
 body {
-    background-color: yellow;
+  height: 5000px;
+ 
 }
-
-header {
-    background-color: black;
-    color: red;
-    font-size: 180%;
-    height: 125px;
-    line-height: 125px;
-    margin-bottom: 35px;
-    text-align: center;
-}
-

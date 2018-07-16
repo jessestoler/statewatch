@@ -1,31 +1,33 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const express = require('express');
 const routes = require("./routes");
-const app = express();
-const PORT = process.env.PORT || 3001;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const db = require("./models");
 
-// Define middleware here
+const app = express();
+const port = process.env.PORT || 5000;
+
+
+// This file empties the Books collection and inserts the books below
+
+
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
+
+
+
+
 app.use(routes);
 
+/*app.get('/api/hello', (req, res) => {
+  res.send({ express: 'Hello From Express' });
+});*/
 
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/legislators";
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/deliverance");
 
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
