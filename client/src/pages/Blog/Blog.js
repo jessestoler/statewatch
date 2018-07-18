@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Comments from "../../components/Comments";
+import { Link } from "react-router-dom";
+
 
 
 class Blog extends Component {
   state = {
-    book: {}
+    book: {},
+    name: "",
+    text: "",
+    blog: "",
+    beatles: []
+    
   };
 
   componentDidMount() {
@@ -15,31 +23,117 @@ class Blog extends Component {
       .then(res => this.setState({ book: res.data }))
      
       .catch(err => console.log(err));
+      this.loadComments();
     
   }
 
-  
+  handleFormSubmit = event => {
+    event.preventDefault();
+    
+      API.saveComment({
+        name: this.state.name,
+        text: this.state.text,
+        blog: this.state.book.title
+      
+       
+      })
+
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+
+    
+        alert("comment submitted");
+        
+  };
+
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state.book);
+  };
+
+  loadBooks = () => {
+    window.location.reload();
+  };
+
+  loadComments = () => {
+    API.getComments()
+      .then(res =>
+        this.setState({ beatles: res.data})
+      )
+      .catch(err => console.log(err));
+  };
+
+  downvote = () => {
+    axios.put("/api/blogs/" + this.props.match.params.id, {
+      dislikes: this.state.book.dislikes + 1
+    })
+    .then(response => {
+      this.loadBooks();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+};
+
+
+  upvote = () => {
+    axios.put("/api/blogs/" + this.props.match.params.id, {
+      likes: this.state.book.likes + 1
+    })
+    .then(response => {
+      this.loadBooks();
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+};
+
+
 
   render() {
     return (
       <div>
          <Header 
               houseDems={this.state.book.title} />
-      {/*  <img src={this.state.book.image} />
-        <div className="quickFacts">
-        <h3>Quick Facts</h3>
-        <p>Political Party: {this.state.book.party}</p>
-        <p>First Year: {this.state.book.firstYear}</p>
-        <p>District: </p>
-       
+   <div>
+     <p className="byline">By {this.state.book.author}</p>
+     <p className="content">{this.state.book.text}</p>
+     <p>Likes: {this.state.book.likes}</p>
+      <button onClick={this.upvote}>Like</button>
+      <p>Dislikes: {this.state.book.dislikes}</p>
+      <button onClick={this.downvote}>Dislike</button>
+    
+    
+     <p>This post has {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length } comments </p>
+   {this.state.beatles.map(beatle => (
+   <Link to={"/nothing"}> 
+     {beatle.blog === this.state.book.title &&
+            <Comments 
+            
+              key={Math.random() * 12}
+              name={beatle.name}
+              text={beatle.text}
+              blog={beatle.blog}
+            />
+   }
+            </Link>
 
-        </div>
-        <div className="bio">
-          <h4>Biography</h4>
-          <p>Across the centuries stirred by starlight. Consciousness galaxies inconspicuous motes of rock and gas realm of the galaxies hydrogen atoms how far away! Hypatia vastness is bearable only through love, Vangelis, bits of moving fluff? Shores of the cosmic ocean? Culture rich in heavy atoms citizens of distant epochs Flatland, take root and flourish! Star stuff harvesting star light explorations hearts of the stars the carbon in our apple pies rings of Uranus extraplanetary billions upon billions and billions upon billions upon billions upon billions upon billions upon billions upon billions!</p>
-          </div>
-    */}
+            
+     
+          ))}
+        
+        Name: <input className="commentName" onChange={this.handleInputChange} type="text" name="name"  /> <br />
+        Leave a Comment: <input className="commentText" onChange={this.handleInputChange} type="text" name="text"  /> 
+         <button onClick={this.handleFormSubmit} >Submit Comment</button>
      </div>
+     </div>
+     
     );
   }
 }

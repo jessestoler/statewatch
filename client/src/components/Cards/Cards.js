@@ -1,5 +1,5 @@
 import React from 'react';
-import "./cards.css";
+
 const blue = {
     backgroundColor: "blue"
   };

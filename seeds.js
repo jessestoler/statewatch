@@ -821,63 +821,81 @@ db.State
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 1,
     state: "Alabama",
-    party: "Republican"
+    party: "Republican",
+    district: "2nd",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "Nathaniel Ledbetter",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 2,
     state: "Alabama",
-    party: "Republican"
+    party: "Republican",
+     district: "3rd",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "Anthony Daniels",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 3,
     state: "Alabama",
-    party: "Democrat"
+    party: "Democrat",
+     district: "1st",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
    {
     name: "Bryce Edgmon",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 4,
     state: "Alaska",
-    party: "Democratic"
+    party: "Democratic",
+     district: "1st",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "David Mills",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 5,
     state: "Alaska",
-    party: "Republican"
+    party: "Republican",
+     district: "2nd",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "William Somerset",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 6,
     state: "Alaska",
-    party: "Democrat"
+    party: "Democrat",
+     district: "3rd",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
    {
     name: "Laura Brown",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 7,
     state: "Arizona",
-    party: "Republican"
+    party: "Republican",
+     district: "2nd",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "Clarissa Vaughan",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 2,
     state: "Arizona",
-    party: "Republican"
+    party: "Republican",
+     district: "1st",
+    bio: "No information yet. Click on the edit button to contribute!"
   },
   {
     name: "Virginia Woolf",
     image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
     firstYear: 3,
     state: "Arizona",
-    party: "Democrat"
+    party: "Democrat",
+     district: "3rd",
+    bio: "No information yet. Click on the edit button to contribute!"
   }
 ];
 

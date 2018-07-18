@@ -6,7 +6,9 @@ const senateSchema = new Schema({
   image: { type: String, required: true },
   firstYear: { type: Number, required: true },
   state: { type: String, required: true },
-  party: { type: String, required: true }
+  party: { type: String, required: true },
+  district: { type: String, required: true },
+  bio: { type: String, required: true }
 });
 
 const Senator = mongoose.model("Senator", senateSchema);

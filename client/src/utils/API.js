@@ -48,5 +48,22 @@ export default {
   // Saves a book to the database
   saveBlog: function(blogData) {
     return axios.post("/api/blogs", blogData);
-  }
+  },
+
+     // Gets all books
+     getComments: function() {
+      return axios.get("/api/comments");
+    },
+    // Gets the book with the given id
+    getComment: function(id) {
+      return axios.get("/api/comments/" + id);
+    },
+    // Deletes the book with the given id
+    deleteComment: function(id) {
+      return axios.delete("/api/comments/" + id);
+    },
+    // Saves a book to the database
+    saveComment: function(blogData) {
+      return axios.post("/api/comments", blogData);
+    }
 };

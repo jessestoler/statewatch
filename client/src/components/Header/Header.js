@@ -1,9 +1,8 @@
 import React from 'react';
-import "./header.css";
 
 
 const Header = props => (
-    <div id="header">
+    <div className="header">
      
             
                 <p>{props.houseDems}</p>  

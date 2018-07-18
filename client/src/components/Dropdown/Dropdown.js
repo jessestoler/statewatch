@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./dropdown.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
@@ -63,9 +62,9 @@ class Dropdown extends Component {
       <div >
     <p>Select State</p>
      <button onClick={this.showList} >&#9660;</button> 
-      <ul style={this.state.style}>
+      <ul className="dropdown" style={this.state.style}>
       {this.state.books.map(a => (
-          <Link to={"/" + a._id}>  <li>{a.name}</li>
+          <Link to={"/" + a._id}>  <li className="dropdownItems">{a.name}</li>
            </Link>
           ))}
       </ul>

@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import "./main.css";
 import Dropdown from "../../components/Dropdown";
 import Cards from "../../components/Cards";
 import Header from "../../components/Header";
@@ -30,7 +29,7 @@ class Main extends Component {
         
         <Header 
               houseDems="State Watch" />
-              <div id="container">
+              <div className="container">
               <Dropdown />
             
               </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./footer.css";
 
 class Footer extends Component {
   state = {
@@ -13,7 +12,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div id="footer" >
+      <div className="footer" >
     <p>App Developed by Jesse Stoler</p>
       </div>
     );

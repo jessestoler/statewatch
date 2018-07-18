@@ -56,13 +56,19 @@ class Blogindex extends Component {
               text={beatle.text}
               author={beatle.author}
               state={beatle.state}
+              likes={beatle.likes}
+              dislikes={beatle.dislikes}
             />
    }
             </Link>
+
+            
      
           ))}
     
-
+    <Link to={"/submit/" + this.state.books._id}> 
+    <p>Write a Story!</p>
+    </Link>
     
 
        

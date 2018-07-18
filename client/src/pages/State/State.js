@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import "./state.css";
 import Header from "../../components/Header";
-import Graph from "../../components/Graph";
 import { Chart } from 'react-google-charts';
 
 class State extends Component {
