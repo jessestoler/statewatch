@@ -11,13 +11,12 @@ import Blog from "./pages/Blog";
 import Submit from "./pages/Submit";
 
 
-
 const App = () => (
 <Router>
     <div>
      
       <Switch>
-     
+    
       <Route exact path="/blog/:id" component={Blog} />
       <Route exact path="/stateblog/:id" component={Blogindex} />
       <Route exact path="/profile/:id" component={Profile} />

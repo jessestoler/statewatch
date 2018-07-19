@@ -56,6 +56,7 @@ class Group extends Component {
               image={beatle.image}
               firstYear={beatle.firstYear}
               party={beatle.party}
+              district={beatle.district}
             />
    }
             </Link>

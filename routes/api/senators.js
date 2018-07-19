@@ -1,16 +1,16 @@
 const router = require("express").Router();
-const senateController = require("../../controllers/senateController");
+const senatorController = require("../../controllers/senatorController");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(senateController.findAll)
-  .post(senateController.create);
+  .get(senatorController.findAll)
+  .post(senatorController.create);
 
 // Matches with "/api/books/:id"
 router
   .route("/:id")
-  .get(senateController.findById)
-  .put(senateController.update)
-  .delete(senateController.remove);
+  .get(senatorController.findById)
+  .put(senatorController.update)
+  .delete(senatorController.remove);
 
 module.exports = router;

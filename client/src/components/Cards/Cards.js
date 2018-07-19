@@ -17,6 +17,8 @@ const Cards = props => (
                 <p>{props.firstYear}</p>
                 <img src={props.image} />
                 <p>{props.party}</p>
+                <p>{props.district}</p>
+                
                
             
        

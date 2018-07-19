@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 class Submit extends Component {
   state = {
@@ -61,22 +63,29 @@ class Submit extends Component {
   render() {
  
       return (
-        <div >
-       <div className="titleInput">
-        Title: <input onChange={this.handleInputChange} type="text" name="title" />
+        <div>
+        <Header 
+        houseDems="State Watch" />
+        <div className="submitContainer" >
+       
+          <h2>Write Your Story Here!</h2>
+       <div >
+        Title:<br /> <input className="titleInput" onChange={this.handleInputChange} type="text" name="title" />
         </div>
-        <div className="authorInput">
-        Author: <input onChange={this.handleInputChange} type="text" name="author" />
+        <div >
+        Author:<br /> <input className="authorInput" onChange={this.handleInputChange} type="text" name="author" />
         </div>
        
-        <div className="bodyInput">
-        Text: <input onChange={this.handleInputChange} type="text" name="text"  />
-         <button className="submitButton" onClick={this.handleFormSubmit} >Submit Story</button>
+        <div>
+        Text: <br /> <input className="bodyInput" onChange={this.handleInputChange} type="text" name="text"  />
         </div>
      
+        <button className="submitButton" onClick={this.handleFormSubmit} >Submit Story</button>
 
 
         
+        </div>
+        <Footer />
         </div>
        
       );

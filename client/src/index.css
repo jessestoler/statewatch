@@ -25,15 +25,20 @@
 }
 
 body {
- 
+  background-color: rgb(204, 166, 51);
   font-family: sans-serif;
-  height: 15000px;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 120px;
   padding: 0;
 }
 
+.bodyInput {
+  height: 500px;
+  width: 300px;
+}
+
+.breakdown {
+  border-bottom: 3px solid red;
+}
 
 .building {
   margin-top: 15px;
@@ -71,8 +76,9 @@ body {
 
 .container {
   float: right;
-
 }
+
+
 
 .content {
   text-align: center;
@@ -81,17 +87,24 @@ body {
 
 .dropdown {
   background-color: white;
-  bottom: 30px;
-  left: 33px;
   max-height: 100px;
   overflow: hidden;
   overflow-y: scroll;
-  position: relative;
   width: 150px;
+}
+
+.dropdownButton {
+  left: 95px;
+  position: relative;
+  bottom: 40px;
 }
 
 .dropdownItems {
   list-style-type: none;
+}
+
+.dropdownText {
+  font-weight: 550;
 }
 
 .feedback {
@@ -106,9 +119,9 @@ body {
   height: 60px;
   line-height: 60px;
   margin-top: 50px;
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
+  width: 120%;
 }
 
 .header {
@@ -118,6 +131,7 @@ body {
   font-size: 250%;
   height: 75px;
   line-height: 75px;
+  margin-right: 40px;
   position: fixed;
   text-align: center;
   top: 30px;
@@ -125,14 +139,30 @@ body {
   z-index: -1;
 }
 
-.main img {
-  height: 200px;
-  width: 400px;
+
+
+.house p {
+  font-weight: 550;
+}
+
+.mainDropdown {
+  margin-left: 40px;
+}
+
+
+
+.mainText {
+  float: right;
+  font-family: 'Cinzel', serif;
+  font-size: 260%;
+  margin-right: 7%;
+  width: 40%;
 }
 
 .map {
-  height: 500px;
-  width: 500px;
+  height: 350px;
+  margin-left: 40px;
+  width: 400px;
 }
 
 .none {
@@ -156,6 +186,57 @@ body {
   text-align: center;
 }
 
+
+.senate p {
+  font-weight: 550;
+}
+
+.stateBlogs {
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+
+
+.stateDropdown {
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 15px;
+}
+
+.stateMain img {
+  height: 200px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+}
+
+
 .submitButton {
   margin-top: 25px;
+}
+
+.submitContainer {
+  margin-left: 250px;
+}
+
+@media screen and (max-width: 980px) {
+  body {
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  body {
+    background-color: blue;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    background-color: red;
+  }
+  
+ 
 }

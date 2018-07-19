@@ -815,101 +815,7 @@ db.State
     process.exit(1);
   });*/
 
-/*const stateSeed = [
-  {
-    name: "Mac McCutcheon",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 1,
-    state: "Alabama",
-    party: "Republican",
-    district: "2nd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "Nathaniel Ledbetter",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 2,
-    state: "Alabama",
-    party: "Republican",
-     district: "3rd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "Anthony Daniels",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 3,
-    state: "Alabama",
-    party: "Democrat",
-     district: "1st",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-   {
-    name: "Bryce Edgmon",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 4,
-    state: "Alaska",
-    party: "Democratic",
-     district: "1st",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "David Mills",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 5,
-    state: "Alaska",
-    party: "Republican",
-     district: "2nd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "William Somerset",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 6,
-    state: "Alaska",
-    party: "Democrat",
-     district: "3rd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-   {
-    name: "Laura Brown",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 7,
-    state: "Arizona",
-    party: "Republican",
-     district: "2nd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "Clarissa Vaughan",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 2,
-    state: "Arizona",
-    party: "Republican",
-     district: "1st",
-    bio: "No information yet. Click on the edit button to contribute!"
-  },
-  {
-    name: "Virginia Woolf",
-    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
-    firstYear: 3,
-    state: "Arizona",
-    party: "Democrat",
-     district: "3rd",
-    bio: "No information yet. Click on the edit button to contribute!"
-  }
-];
 
-db.Senator
-  .remove({})
-  .then(() => db.Senator.collection.insertMany(stateSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });*/
 
   /*const stateSeed = [
   {
@@ -937,3 +843,108 @@ db.Blog
     console.error(err);
     process.exit(1);
   });*/
+
+  /*const stateSeed = [
+    {
+      name: "Mac McCutcheon",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 1,
+      state: "Alabama",
+      party: "Republican",
+      district: "2nd",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+    
+    },
+    {
+      name: "Nathaniel Ledbetter",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 2,
+      state: "Alabama",
+      party: "Republican",
+       district: "3rd",
+       bio: "No information yet. Click on the edit button to contribute!",
+       committees: "Judiciary"
+      
+    },
+    {
+      name: "Anthony Daniels",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 3,
+      state: "Alabama",
+      party: "Democrat",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+      
+    },
+     {
+      name: "Bryce Edgmon",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 4,
+      state: "Alaska",
+      party: "Democrat",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+    },
+    {
+      name: "David Mills",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 5,
+      state: "Alaska",
+      party: "Republican",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+      
+    },
+    {
+      name: "William Somerset",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 6,
+      state: "Alaska",
+      party: "Democrat",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+    },
+     {
+      name: "Laura Brown",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 7,
+      state: "Arizona",
+      party: "Republican",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+     
+    },
+    {
+      name: "Clarissa Vaughan",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 2,
+      state: "Arizona",
+      party: "Republican",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+      
+    },
+    {
+      name: "Virginia Woolf",
+      image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+      firstYear: 3,
+      state: "Arizona",
+      party: "Democrat",
+      bio: "No information yet. Click on the edit button to contribute!",
+      committees: "Judiciary"
+      
+    }
+  ];
+  
+  db.Senator
+    .remove({})
+    .then(() => db.Senator.collection.insertMany(stateSeed))
+    .then(data => {
+      console.log(data.result.n + " records inserted!");
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error(err);
+      process.exit(1);
+    });*/
