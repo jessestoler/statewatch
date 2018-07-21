@@ -33,6 +33,22 @@ export default {
   saveState: function(stateData) {
     return axios.post("/api/states", stateData);
   },
+     // Gets all books
+     getUsers: function() {
+      return axios.get("/api/users");
+    },
+    // Gets the book with the given id
+    getUser: function(id) {
+      return axios.get("/api/users/" + id);
+    },
+    // Deletes the book with the given id
+    deleteUser: function(id) {
+      return axios.delete("/api/users/" + id);
+    },
+    // Saves a book to the database
+    saveUser: function(stateData) {
+      return axios.post("/api/users", stateData);
+    },
    // Gets all books
    getBlogs: function() {
     return axios.get("/api/blogs");
