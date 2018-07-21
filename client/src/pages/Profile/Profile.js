@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Dropdown from "../../components/Dropdown";
 import axios from "axios";
 
 
@@ -78,14 +79,19 @@ handleInputChange = event => {
        
 
         </div>
+        <div className="sidebar">
+              <Dropdown />
+              </div>
         <div className="bio">
           <h4>Biography</h4>
-          <button onClick={this.edit}>Edit</button>
+          <button className="editBio" onClick={this.edit}>Edit</button>
           <p style={this.state.block}>{this.state.book.bio}</p>
         <input className="bioInput" defaultValue={this.state.book.bio} name="bio" onChange={this.handleInputChange} style={this.state.style} type="text" />
         <button onClick={this.submitEdit} style={this.state.style}>Done Editing</button>
           </div>
-
+<div className="profileFooter">
+<Footer />
+</div>
      </div>
     );
   }

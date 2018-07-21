@@ -11,7 +11,7 @@ class Dropdown extends Component {
     }
      };
 
-  componentDidMount() { this.loadBooks() }
+  componentDidMount() { this.loadBooks();  }
 
   loadBooks = () => {
     API.getStates()
@@ -19,16 +19,34 @@ class Dropdown extends Component {
         this.setState({ books: res.data})
       )
       .catch(err => console.log(err));
+
+
   };
 
   showList = () => {
-    this.setState({
+ 
+    {this.state.style.display === "none"?  this.setState({
       style: {
         display: "block"
       }
-    });
+    }) :  this.setState({
+      style: {
+        display: "none"
+      }
+    })} 
+
+    
 
   };
+
+  /*hideList = () => {
+    this.setState({
+      style: {
+        display: "none"
+      }
+    });
+
+  };*/
   
   refresh = () => {
     window.location.reload();

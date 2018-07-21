@@ -24,10 +24,10 @@ class State extends Component {
 
   render() {
       return (
+        
         <div className="row">
         <Header
               houseDems={this.state.book.name} />
-        
          <div className="house col-3">
          <h4 className="breakdown">House Breakdown</h4>
          <p>Democrats: {this.state.book.houseDems}</p>

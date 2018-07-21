@@ -5,12 +5,14 @@ const Blogentry = props => (
     <div >
                 <div className="blogCard">
             
-                <p>{props.title}</p>  
-                <p className="none">{props.text}</p>
+                <h3>{props.title}</h3>  
                 <p>By {props.author}</p>
-                <p className="none">{props.state}</p>
-                <p>Likes: {props.likes}</p>
-                <p>Dislikes: {props.dislikes}</p>
+                <p className="summary">{props.summary}</p>
+               
+                <div className="thumbs">
+                <p className="voteLeft">Likes: {props.likes}</p>
+                <p className="voteRight">Dislikes: {props.dislikes}</p>
+                </div>
                </div>
             
        

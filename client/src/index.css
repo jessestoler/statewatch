@@ -3,6 +3,8 @@
 }
 
 .bio {
+  margin-bottom: 160px;
+  margin-left: 40px;
   margin-top: 25px;
   width: 70%;
 }
@@ -20,15 +22,29 @@
 }
 
 .blogCard {
-  background-color: pink;
-  width: 60%;
+  background-color: lightskyblue;
+  border-bottom: 2px solid red;
+  color: black;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 205px;
+  margin-left: 40px;
+  padding: 20px;
+  width: 80%;
 }
+
+.blogList {
+  background-color: red;
+  margin-left: 40px;
+  
+  width: 56%;
+}
+
 
 body {
   background-color: rgb(204, 166, 51);
   font-family: sans-serif;
   margin-top: 120px;
-  padding: 0;
+  
 }
 
 .bodyInput {
@@ -47,11 +63,13 @@ body {
 .byline {
   font-family: 'Cookie', cursive;
   font-size: 250%;
+  margin-left: 75px;
 }
 
 .cards {
   color: white;
   display: inline-block;
+  margin-left: 40px;
   margin-right: 15px;
   text-align: center;
   width: 250px;
@@ -62,16 +80,36 @@ body {
   width: 200px;
 }
 
+.commentButton {
+  left: -200px;
+  margin-bottom: 155px;
+  position: relative;
+  
+  top: 100px;
+}
+
 .commentName {
   height: 25px;
-  left: 180px;
+  left: 215px;
   position: absolute;
   width: 150px;
 }
 
+
+.commentSection {
+  margin-left: 75px;
+}
+
+
+
 .commentText {
-  height: 100px;
-  width: 150px;
+  height: 150px;
+  margin-top: 15px;
+  width: 200px;
+}
+
+.commentTotal {
+  font-family: 'Noto Serif', serif;
 }
 
 .container {
@@ -81,6 +119,8 @@ body {
 
 
 .content {
+  margin-left: 15%;
+  margin-right: 15%;
   text-align: center;
 }
 
@@ -94,9 +134,11 @@ body {
 }
 
 .dropdownButton {
+ 
+  bottom: 40px;
   left: 95px;
   position: relative;
-  bottom: 40px;
+ 
 }
 
 .dropdownItems {
@@ -107,8 +149,17 @@ body {
   font-weight: 550;
 }
 
+.editBio {
+  float: right;
+  position: relative;
+  top: -45px;
+}
+
 .feedback {
-  background-color: pink;
+  border: 3px solid black;
+  margin-bottom: 15px;
+  padding: 3%;
+  pointer-events: none;
   width: 40%;
 }
 
@@ -118,10 +169,18 @@ body {
   color: orange;
   height: 60px;
   line-height: 60px;
-  margin-top: 50px;
+  margin-bottom: 0px;
+  margin-top: 40px;
   position: relative;
   text-align: center;
   width: 120%;
+  z-index: -1;
+}
+
+.groupFooter {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
 }
 
 .header {
@@ -145,32 +204,61 @@ body {
   font-weight: 550;
 }
 
-.mainDropdown {
-  margin-left: 40px;
+.indexFooter {
+  bottom: 0px;
+ 
+  width: 100%;
 }
 
+.mainDropdown {
+ 
+  margin-left: 40px;
+  
+}
 
+.mainFooter {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}
 
 .mainText {
   float: right;
+ 
+  margin-right: 6%;
+  width: 35%;
+}
+
+.mainText h3 {
   font-family: 'Cinzel', serif;
   font-size: 260%;
-  margin-right: 7%;
-  width: 40%;
 }
+
 
 .map {
   height: 350px;
   margin-left: 40px;
   width: 400px;
+ 
+}
+
+.mobileDropdown {
+  display: none;
 }
 
 .none {
   display: none;
 }
 
+.profileFooter {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}
+
 .profileImage {
   height: 200px;
+  margin-left: 40px;
   width: 200px;
 }
 
@@ -187,16 +275,25 @@ body {
 }
 
 
+
 .senate p {
   font-weight: 550;
 }
 
+.sidebar {
+  position: fixed;
+  right: 0px;
+  background-color: silver;
+  width: 125px;
+  height: 210px;
+
+}
+
 .stateBlogs {
+  margin-bottom: 50px;
   margin-left: 40px;
   margin-top: 30px;
 }
-
-
 
 .stateDropdown {
   margin-left: 35%;
@@ -213,17 +310,38 @@ body {
 
 
 .submitButton {
+  margin-bottom: 60px;
   margin-top: 25px;
 }
 
 .submitContainer {
-  margin-left: 250px;
+  background-color: red;
+  margin-left: 130px;
+  padding-left: 35px;
+  padding-top: 15px;
+  width: 55%;
 }
+
+.vote {
+ 
+  margin: 25px 35% 135px 35%;
+}
+
+.voteLeft {
+  float: left;
+}
+
+.voteRight {
+  float: right;
+}
+
 
 @media screen and (max-width: 980px) {
   body {
     background-color: white;
   }
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -231,12 +349,33 @@ body {
   body {
     background-color: blue;
   }
+  .submitContainer {
+    margin-left: 25;
+  }
 }
 
 @media screen and (max-width: 640px) {
   body {
-    background-color: red;
+    background-color: pink;
   }
-  
- 
+
+  .bodyInput {
+    width: 170px;
+  }
+
+  .mobileDropdown {
+    display: block;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 10px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .summary {
+    display: none;
+  }
+
 }

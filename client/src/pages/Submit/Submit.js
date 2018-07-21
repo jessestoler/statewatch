@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Dropdown from "../../components/Dropdown";
+
 
 class Submit extends Component {
   state = {
@@ -32,9 +34,12 @@ class Submit extends Component {
         title: this.state.title,
         author: this.state.author,
         text: this.state.text,
+        summary: this.state.text.substring(0, 100),
         state: this.state.book.name,
         likes: 0,
-        dislikes: 0
+        dislikes: 0,
+        popularity: 0,
+        votes: 0
       })
 
       .then(res => this.loadBooks())
@@ -66,6 +71,9 @@ class Submit extends Component {
         <div>
         <Header 
         houseDems="State Watch" />
+           <div className="sidebar submitSidebar">
+              <Dropdown />
+              </div>
         <div className="submitContainer" >
        
           <h2>Write Your Story Here!</h2>
@@ -84,6 +92,9 @@ class Submit extends Component {
 
 
         
+        </div>
+        <div className="mobileDropdown">
+        <Dropdown />
         </div>
         <Footer />
         </div>

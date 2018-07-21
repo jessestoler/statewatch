@@ -9,6 +9,7 @@ import Group from "./pages/Group";
 import Blogindex from "./pages/Blogindex";
 import Blog from "./pages/Blog";
 import Submit from "./pages/Submit";
+import Sortedblogindex from "./pages/Sortedblogindex";
 
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
     
       <Route exact path="/blog/:id" component={Blog} />
       <Route exact path="/stateblog/:id" component={Blogindex} />
+      <Route exact path="/stateblog/sorted/:id" component={Sortedblogindex} />
       <Route exact path="/profile/:id" component={Profile} />
       <Route exact path="/reps/:id" component={Group} />
       <Route exact path="/submit/:id" component={Submit} />

@@ -3,6 +3,7 @@ import axios from "axios";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Dropdown from "../../components/Dropdown";
 import Comments from "../../components/Comments";
 import { Link } from "react-router-dom";
 
@@ -69,7 +70,10 @@ class Blog extends Component {
 
   downvote = () => {
     axios.put("/api/blogs/" + this.props.match.params.id, {
-      dislikes: this.state.book.dislikes + 1
+      dislikes: this.state.book.dislikes + 1,
+      popularity: this.state.book.likes / (this.state.book.votes + 1),
+      votes: this.state.book.votes + 1
+      
     })
     .then(response => {
       this.loadBooks();
@@ -83,7 +87,10 @@ class Blog extends Component {
 
   upvote = () => {
     axios.put("/api/blogs/" + this.props.match.params.id, {
-      likes: this.state.book.likes + 1
+      likes: this.state.book.likes + 1,
+      popularity: (this.state.book.likes + 1) / (this.state.book.votes + 1),
+      votes: this.state.book.votes + 1
+      
     })
     .then(response => {
       this.loadBooks();
@@ -101,16 +108,20 @@ class Blog extends Component {
       <div>
          <Header 
               houseDems={this.state.book.title} />
+               <div className="sidebar">
+              <Dropdown />
+              </div>
    <div>
      <p className="byline">By {this.state.book.author}</p>
      <p className="content">{this.state.book.text}</p>
-     <p>Likes: {this.state.book.likes}</p>
-      <button onClick={this.upvote}>Like</button>
-      <p>Dislikes: {this.state.book.dislikes}</p>
-      <button onClick={this.downvote}>Dislike</button>
-    
-    
-     <p>This post has {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length } comments </p>
+     <div className="vote">
+     <p className="voteLeft">Likes: {this.state.book.likes}</p>
+      <button className="voteLeft" onClick={this.upvote}>Like</button>
+      <p className="voteRight">Dislikes: {this.state.book.dislikes}</p>
+      <button className="voteRight" onClick={this.downvote}>Dislike</button>
+      </div>
+    <div className="commentSection">
+     <p className="commentTotal">This post has {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length } {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length === 1? 'comment' : 'comments'} </p>
    {this.state.beatles.map(beatle => (
    <Link to={"/nothing"}> 
      {beatle.blog === this.state.book.title &&
@@ -130,7 +141,8 @@ class Blog extends Component {
         
         Name: <input className="commentName" onChange={this.handleInputChange} type="text" name="name"  /> <br />
         Leave a Comment: <input className="commentText" onChange={this.handleInputChange} type="text" name="text"  /> 
-         <button onClick={this.handleFormSubmit} >Submit Comment</button>
+         <button className="commentButton" onClick={this.handleFormSubmit} >Submit Comment</button>
+         </div>
      </div>
      </div>
      

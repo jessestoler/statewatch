@@ -37,6 +37,10 @@ export default {
    getBlogs: function() {
     return axios.get("/api/blogs");
   },
+
+  getVotes: function() {
+    return axios.get("/api/blogs/votes");
+  },
   // Gets the book with the given id
   getBlog: function(id) {
     return axios.get("/api/blogs/" + id);
@@ -54,6 +58,7 @@ export default {
      getComments: function() {
       return axios.get("/api/comments");
     },
+  
     // Gets the book with the given id
     getComment: function(id) {
       return axios.get("/api/comments/" + id);
