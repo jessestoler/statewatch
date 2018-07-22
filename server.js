@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./models");
 const app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 5000;
 const path = require('path');
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/deliverance";
 
