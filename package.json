@@ -1,10 +1,11 @@
 {
-  "name": "example",
+  "name": "voterbooth",
   "version": "1.0.0",
   "scripts": {
-    "client": "cd client && yarn start",
+    "client": "concurrently --kill-others-on-fail \"nodemon server.js\" \"cd client && yarn start\"",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "heroku-postbuild": "concurrently --kill-others-on-fail \"nodemon server.js\" \"cd client && yarn start\"",
+    "dev": "cd client && yarn start"
   },
   "dependencies": {
     "axios": "^0.18.0",
