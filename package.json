@@ -2,10 +2,10 @@
   "name": "voterbooth",
   "version": "1.0.0",
   "scripts": {
-    "client": "concurrently --kill-others-on-fail \"nodemon server.js\" \"cd client && yarn start\"",
-    "server": "nodemon server.js",
-    "heroku-postbuild": "concurrently --kill-others-on-fail \"nodemon server.js\" \"cd client && yarn start\"",
-    "dev": "cd client && yarn start"
+   
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    
   },
   "dependencies": {
     "axios": "^0.18.0",
