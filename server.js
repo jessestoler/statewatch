@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./models");
 const app = express();
-const port = process.env.PORT || 3000;
+var PORT = process.env.PORT || git3000;
 const path = require('path');
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/deliverance";
 
@@ -32,7 +32,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 
-app.listen(port, function() {
-    console.log("App running on port " + port + "!");
+app.listen(PORT, function() {
+    console.log("App running on port " + PORT + "!");
     
   });
