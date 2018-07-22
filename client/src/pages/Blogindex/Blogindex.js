@@ -14,10 +14,7 @@ class Blogindex extends Component {
 
   state = {
     books: [],
-    beatles: [],
-    style: {
-      position: "relative"
-    }
+    beatles: []
   };
 
  
@@ -62,8 +59,7 @@ class Blogindex extends Component {
     <p>Got a Scoop of Your Own?</p>
     </Link>
               </div>
-              <p>Nothing to see here</p>
-              <p>{this.state.beatles.filter(beatle => beatle.state == this.state.books.name).length}</p>
+    
               <p>Sort By: Date |<Link to={"/stateblog/sorted/" + this.state.books._id}> Popularity</Link></p>
    {this.state.beatles.map(beatle => (
    <Link to={"/blog/" + beatle._id}> 
@@ -89,7 +85,7 @@ class Blogindex extends Component {
    
     
     
-<div className="indexFooter" style={this.state.style}>
+<div className="indexFooter" >
 <Footer />
        </div>
       </div>

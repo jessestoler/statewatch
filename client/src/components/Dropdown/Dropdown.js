@@ -39,14 +39,7 @@ class Dropdown extends Component {
 
   };
 
-  /*hideList = () => {
-    this.setState({
-      style: {
-        display: "none"
-      }
-    });
 
-  };*/
   
   refresh = () => {
     window.location.reload();
@@ -63,8 +56,9 @@ class Dropdown extends Component {
     return (
       <div >
         <div>
-    <p className="dropdownText" >Select State</p>
+    
     <button className="dropdownButton" onClick={this.showList} >&#9660;</button> 
+    <p className="dropdownText" >Select State</p>
     </div>
      
       <ul className="dropdown" style={this.state.style}>
@@ -73,6 +67,7 @@ class Dropdown extends Component {
            </Link>
           ))}
       </ul>
+      
       </div>
     );
   }

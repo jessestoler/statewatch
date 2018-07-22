@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-
+import Dropdown from "../../components/Dropdown";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -49,6 +49,10 @@ class Group extends Component {
       <div>
           <Header 
               houseDems={this.state.books.name} />
+               <div className="groupSidebar sidebar">
+              <Dropdown />
+              </div>
+              <div className="cardContainer">
    {this.state.beatles.map(beatle => (
      <Link to={"/profile/" + beatle._id}> 
      {beatle.state === this.state.books.name &&
@@ -66,7 +70,10 @@ class Group extends Component {
      
           ))}
     
-
+</div>
+<div className="groupDropdown">
+<Dropdown />
+</div>
     <div className="groupFooter">
 <Footer />
 </div>

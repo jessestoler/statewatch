@@ -144,6 +144,10 @@ class Blog extends Component {
          <button className="commentButton" onClick={this.handleFormSubmit} >Submit Comment</button>
          </div>
      </div>
+<div className="blogFooter">
+<Footer />
+</div>
+
      </div>
      
     );
