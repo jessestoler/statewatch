@@ -7,20 +7,12 @@ router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
 
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  router.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-  router.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
 
 
 
 
-//router.use(function(req, res) {
-  //res.sendFile(path.join(__dirname, "../client/build/index.html"));
-//});
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 module.exports = router;
