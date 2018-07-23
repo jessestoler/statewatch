@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react";
 import axios from "axios";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
@@ -12,13 +13,15 @@ import { Link } from "react-router-dom";
 class Bill extends Component {
   state = {
     book: {},
+    commentInfo: {},
     name: "",
     text: "",
     vote: "",
     beatles: [],
     style: {
         display: "none"
-    }
+    },
+    commentTag: ""
     
   };
 
@@ -100,13 +103,54 @@ showList = () => {
       });
 };
 
-likeComment = () => {
-   API.getComment(this.props.match.params.id)
-    .then(res =>   console.log(this.props.match.params.id))
+update() {
+  
    
-    .catch(err => console.log(err));
+
+   
+            this.setState({commentTag: this.refs});
+           
+       
+        
+  
+
+    setTimeout(
+        function() {
+            API.getComment(this.state.commentTag)
+            .then(res => this.setState({ commentInfo: res.data }))
+           
+            .catch(err => console.log(err));
+        
+        
+        }
+        .bind(this),
+        200
+    );
+
+    setTimeout(
+        function() {
+console.log(this.state);
+        
+        }
+        .bind(this),
+        300
+    );
 
 
+}
+
+joe = () => {
+
+    axios.put("/api/comments/" + this.state.commentInfo._id, {
+        dislikes: this.state.commentInfo.dislikes + 1
+        
+      })
+      .then(response => {
+        this.loadBooks();
+      })
+      .catch(error => {
+        console.log(error);
+      })
 };
 
 
@@ -143,6 +187,22 @@ yes = () => {
         style: {
             display: "none"
         }
+      });
+
+};
+
+fuck = () => {
+    axios.put("/api/comments/" + this.state.commentTag, {
+        dislikes: this.state.book.dislikes + 1,
+        popularity: this.state.book.likes / (this.state.book.amount + 1),
+        amount: this.state.book.amount + 1
+        
+      })
+      .then(response => {
+        this.loadBooks();
+      })
+      .catch(error => {
+        console.log(error);
       });
 
 };
@@ -192,13 +252,13 @@ yes = () => {
     <div className="left">
     <p>Likes</p>
     <p>{beatle.likes}</p>
-    <button onClick={this.likeComment}>Like</button>
+    <button ref="mexico" onClick={this.update.bind(this)} name={beatle._id} >Like</button>
     </div>
     
     <div className="right">
     <p>Dislikes</p>
     <p>{beatle.dislikes}</p>
-    <button>Dislike</button>
+    <button ref="yo" onClick={this.update.bind(this)} name={beatle._id} >Dislike</button>
     </div>
     </div>
    </div>
