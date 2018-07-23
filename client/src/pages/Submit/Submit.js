@@ -77,15 +77,17 @@ class Submit extends Component {
         <div className="submitContainer" >
        
           <h2>Write Your Story Here!</h2>
-       <div >
-        Title:<br /> <input className="blue titleInput" onChange={this.handleInputChange} type="text" name="title" />
-        </div>
-        <div >
-        Author:<br /> <input className="authorInput blue" onChange={this.handleInputChange} type="text" name="author" />
-        </div>
+       <p> Title:</p>
+       <input className="blue titleInput" onChange={this.handleInputChange} type="text" name="title" />
+       
+        
+        <p>Author:</p>
+        <input className="authorInput blue" onChange={this.handleInputChange} type="text" name="author" />
+        
        
         <div>
-        Text: <br /> <input className="blue bodyInput" onChange={this.handleInputChange} type="text" name="text"  />
+        <p>Text:</p> 
+        <input className="blue bodyInput" onChange={this.handleInputChange} type="text" name="text"  />
         </div>
      
         <button className="submitButton" onClick={this.handleFormSubmit} >Submit Story</button>

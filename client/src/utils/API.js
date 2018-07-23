@@ -17,6 +17,21 @@ export default {
   saveSenator: function(senatorData) {
     return axios.post("/api/senators", senatorData);
   },
+  getBills: function() {
+    return axios.get("/api/bills");
+  },
+  // Gets the book with the given id
+  getBill: function(id) {
+    return axios.get("/api/bills/" + id);
+  },
+  // Deletes the book with the given id
+  deleteBill: function(id) {
+    return axios.delete("/api/bills/" + id);
+  },
+  // Saves a book to the database
+  saveBill: function(billData) {
+    return axios.post("/api/bills", billData);
+  },
    // Gets all books
    getStates: function() {
     return axios.get("/api/states");
@@ -33,22 +48,7 @@ export default {
   saveState: function(stateData) {
     return axios.post("/api/states", stateData);
   },
-     // Gets all books
-     getUsers: function() {
-      return axios.get("/api/users");
-    },
-    // Gets the book with the given id
-    getUser: function(id) {
-      return axios.get("/api/users/" + id);
-    },
-    // Deletes the book with the given id
-    deleteUser: function(id) {
-      return axios.delete("/api/users/" + id);
-    },
-    // Saves a book to the database
-    saveUser: function(stateData) {
-      return axios.post("/api/users", stateData);
-    },
+
    // Gets all books
    getBlogs: function() {
     return axios.get("/api/blogs");

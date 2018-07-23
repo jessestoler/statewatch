@@ -5,10 +5,12 @@ import Header from "../../components/Header";
 import Dropdown from "../../components/Dropdown";
 import { Chart } from 'react-google-charts';
 import Footer from "../../components/Footer";
+import Bills from "../../components/Bills";
 
 class State extends Component {
   state = {
-    book: {}
+    book: {},
+    beatles: []
   };
 
   componentDidMount() {
@@ -17,9 +19,25 @@ class State extends Component {
      
       .catch(err => console.log(err));
 
+      this.loadBills();
+
       
   }
 
+spoon = () => {
+  console.log(this.state.beatles);
+}
+
+
+  loadBills = () => {
+    API.getBills()
+      .then(res =>
+        this.setState({ beatles: res.data})
+      )
+      .catch(err => console.log(err));
+      
+    
+  };
 
 
   render() {
@@ -28,7 +46,8 @@ class State extends Component {
         <div className="row">
         <Header
               houseDems={this.state.book.name} />
-         <div className="house col-3">
+         <div className="col-3">
+         <div className="house">
          <h4 className="breakdown">House Breakdown</h4>
          <p>Democrats: {this.state.book.houseDems}</p>
          <p>Other: {this.state.book.houseOther}</p>
@@ -36,7 +55,7 @@ class State extends Component {
          <p>Speaker of the House: {this.state.book.speaker}</p>
          <p>Majority Leader: {this.state.book.houseMajority}</p>
          <p>Minority Leader: {this.state.book.houseMinority}</p>
-         <Link to={"/reps/" + this.state.book._id}>  <li>Find a Representative!</li>
+         <Link to={"/reps/" + this.state.book._id}>  Find a Representative!
            </Link>
         
        
@@ -49,7 +68,7 @@ class State extends Component {
         height="100px"
         legend_toggle
       />
-       <h4>View Upcoming Legislation</h4>
+       </div>
          </div>
          <div className="stateMain col-6">
          <img src={this.state.book.flag} /> <br />
@@ -59,7 +78,8 @@ class State extends Component {
          <img className="building" src={this.state.book.mainImage} />
          
               </div>
-              <div className="senate col-3">
+              <div className="col-3">
+              <div className="senate">
          <h4 className="breakdown">Senate Breakdown</h4>
          <p>Democrats: {this.state.book.senateDems}</p>
          <p>Other: {this.state.book.senateOther}</p>
@@ -79,13 +99,33 @@ class State extends Component {
         height="100px"
         legend_toggle
       />
-       <h4>View Upcoming Legislation</h4>
+      
+         </div>
          </div>
          <div className="stateBlogs" >
-         <Link to={"/submit/" + this.state.book._id}> <h4>Have a Story About the {this.state.book.name} State Legislature? Submit Here!</h4></Link>
+         <Link to={"/submit/" + this.state.book._id}> <p>Have a Story About the {this.state.book.name} State Legislature? Submit Here!</p></Link>
            <Link to={"/stateblog/" + this.state.book._id}>  <p>Find Stories</p>
            </Link>
            </div>
+           <div className="billContainer">
+           <h2>Highlighted Legislation</h2>
+           <p>Click on any bill below to read, comment, and vote!</p>
+   {this.state.beatles.map(beatle => (
+     <Link to={"/bill/" + beatle._id}> 
+     {beatle.state === this.state.book.name && 
+            <Bills 
+            
+              key={Math.random() * 12}
+              name={beatle.name}
+              image={beatle.image}
+              sponsor={beatle.sponsor}
+            />
+     }
+          </Link>
+     
+          ))}
+    
+</div>
            <Footer />
         </div>
        

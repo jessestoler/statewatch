@@ -14,7 +14,7 @@ class Blog extends Component {
     book: {},
     name: "",
     text: "",
-    blog: "",
+   
     beatles: []
     
   };
@@ -34,7 +34,13 @@ class Blog extends Component {
       API.saveComment({
         name: this.state.name,
         text: this.state.text,
-        blog: this.state.book.title
+        attachment: this.state.book.title,
+        type: "blog",
+        likes: 0,
+        dislikes: 0,
+        popularity: 0,
+        amount: 0,
+        vote: "doesn't matter"
       
        
       })
@@ -121,23 +127,26 @@ class Blog extends Component {
       <button className="voteRight" onClick={this.downvote}>Dislike</button>
       </div>
     <div className="commentSection">
-     <p className="commentTotal">This post has {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length } {this.state.beatles.filter(beatle => beatle.blog == this.state.book.title).length === 1? 'comment' : 'comments'} </p>
-   {this.state.beatles.map(beatle => (
-   <Link to={"/nothing"}> 
-     {beatle.blog === this.state.book.title &&
-            <Comments 
-            
-              key={Math.random() * 12}
-              name={beatle.name}
-              text={beatle.text}
-              blog={beatle.blog}
-            />
-   }
-            </Link>
+     <p className="commentTotal">This post has {this.state.beatles.filter(beatle => beatle.attachment == this.state.book.title).length } {this.state.beatles.filter(beatle => beatle.attachment == this.state.book.title).length === 1? 'comment' : 'comments'} </p>
+     {this.state.beatles.map(beatle => 
+{
+    return beatle.attachment === this.state.book.title ?
+    <div className="feedback">
+    <p>{beatle.name}</p>  
+    <p>{beatle.text}</p>
+ 
+   </div>
+    
+   
 
-            
+
+
+    :
+        <h1></h1>
+}
+
      
-          ))}
+          )}
         
         Name: <input className="commentName" onChange={this.handleInputChange} type="text" name="name"  /> <br />
         Leave a Comment: <input className="commentText" onChange={this.handleInputChange} type="text" name="text"  /> 

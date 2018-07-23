@@ -8,6 +8,9 @@ class Dropdown extends Component {
     states: [],
     style: {
       display: "none"
+    },
+    styleTwo: {
+      display: "block"
     }
      };
 
@@ -28,10 +31,16 @@ class Dropdown extends Component {
     {this.state.style.display === "none"?  this.setState({
       style: {
         display: "block"
+      },
+      styleTwo: {
+        display: "none"
       }
     }) :  this.setState({
       style: {
         display: "none"
+      },
+      styleTwo: {
+        display: "block"
       }
     })} 
 
@@ -58,7 +67,7 @@ class Dropdown extends Component {
         <div>
     
     <button className="dropdownButton" onClick={this.showList} >&#9660;</button> 
-    <p className="dropdownText" >Select State</p>
+    <p className="dropdownText" style={this.state.styleTwo} >Select State</p>
     </div>
      
       <ul className="dropdown" style={this.state.style}>

@@ -61,6 +61,8 @@ class Blogindex extends Component {
               </div>
     
               <p>Sort By: Date |<Link to={"/stateblog/sorted/" + this.state.books._id}> Popularity</Link></p>
+   
+   <h4 className="noArticles">No Articles Here</h4>
    {this.state.beatles.map(beatle => (
    <Link to={"/blog/" + beatle._id}> 
      {beatle.state === this.state.books.name &&

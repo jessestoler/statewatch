@@ -12,6 +12,7 @@ import Submit from "./pages/Submit";
 import Sortedblogindex from "./pages/Sortedblogindex";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Bill from "./pages/Bill";
 
 
 
@@ -23,6 +24,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/blog/:id" component={Blog} />
+      <Route exact path="/bill/:id" component={Bill} />
       <Route exact path="/stateblog/:id" component={Blogindex} />
       <Route exact path="/stateblog/sorted/:id" component={Sortedblogindex} />
       <Route exact path="/profile/:id" component={Profile} />

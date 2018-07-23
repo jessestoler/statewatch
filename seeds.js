@@ -948,3 +948,56 @@ db.Blog
       console.error(err);
       process.exit(1);
     });*/
+
+  /*  const stateSeed = [
+      {
+        name: "Carol",
+        sponsor: "Todd Haynes",
+        image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+        summary: "Lesbians fall in love in the 50s.",
+        text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+        state: "New York",
+        likes: "0",
+        dislikes: "0",
+        popularity: "0",
+        votes: "0"
+      },
+      {
+        name: "La La Land",
+        sponsor: "Damien Chazelle",
+        image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+        summary: "A musical romance between two aspiring artists.",
+        text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+        state: "Idaho",
+        likes: "0",
+        dislikes: "0",
+        popularity: "0",
+        votes: "0"
+      },
+      {
+        name: "Dunkirk",
+        sponsor: "Christopher Nolan",
+        image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+        summary: "Soldiers fight to stay alive during the evacuation at Dunkirk.",
+        text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+        state: "Colorado",
+        likes: "0",
+        dislikes: "0",
+        popularity: "0",
+        votes: "0"
+      }
+    
+    ];
+    
+    db.Bill
+      .remove({})
+      .then(() => db.Bill.collection.insertMany(stateSeed))
+      .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+      })
+      .catch(err => {
+        console.error(err);
+        process.exit(1);
+      });*/
+    
