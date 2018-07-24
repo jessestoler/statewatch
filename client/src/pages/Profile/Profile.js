@@ -89,9 +89,41 @@ handleInputChange = event => {
         <input className="bioInput" defaultValue={this.state.book.bio} name="bio" onChange={this.handleInputChange} style={this.state.style} type="text" />
         <button onClick={this.submitEdit} style={this.state.style}>Done Editing</button>
           </div>
+          <div className="quickLinks">
+          <div className="left">
+          <Link to={"https://leg.colorado.gov/legislators/crisanta-duran"}>  Official Page
+           </Link>
+           </div>
+           <div className="right">
+          <Link to={"https://twitter.com/crisantaduran"}>  Twitter
+           </Link>
+           </div>
+          
+            </div>
+
+<div className="issuesContainer">
+
+<div className="issues">
+<h3>Economy</h3>
+<button className="editIssue" onClick={this.edit}>Edit</button>
+<p>{this.state.book.economy}</p>
+</div>
+<div className="issues">
+<h3>Environment</h3>
+<button className="editIssue" onClick={this.edit}>Edit</button>
+<p>{this.state.book.environment}</p>
+<div className="issues">
+<h3 className="social">Social</h3>
+<button className="editSocial" onClick={this.edit}>Edit</button>
+<p className="social">{this.state.book.social}</p>
+</div>
+
+</div>
+
 <div className="profileFooter">
 <Footer />
 </div>
+     </div>
      </div>
     );
   }

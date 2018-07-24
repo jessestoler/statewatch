@@ -1016,4 +1016,152 @@ db.Blog
         console.error(err);
         process.exit(1);
       });*/
+
+     /* const stateSeed = [
+        {
+          name: "Mac McCutcheon",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 1,
+          state: "Colorado",
+          party: "Republican",
+          chamber: "House",
+          district: "2nd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+        
+        },
+        {
+          name: "Nathaniel Ledbetter",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 2,
+          state: "Colorado",
+          party: "Republican",
+          chamber: "Senate",
+           district: "3rd",
+           bio: "No information yet. Click on the edit button to contribute!",
+           economy: "No information here yet. Be the first to contribute!",
+           environment: "No information here yet. Be the first to contribute!",
+           social: "No information here yet. Be the first to contribute!",
+           committees: "Judiciary"
+          
+        },
+        {
+          name: "Anthony Daniels",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 3,
+          state: "Colorado",
+          party: "Democrat",
+          chamber: "House",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+          
+        },
+         {
+          name: "Bryce Edgmon",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 4,
+          state: "Colorado",
+          party: "Democrat",
+          chamber: "House",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+        },
+        {
+          name: "David Mills",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 5,
+          state: "Colorado",
+          party: "Republican",
+          chamber: "Senate",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+          
+        },
+        {
+          name: "William Somerset",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 6,
+          state: "Colorado",
+          party: "Democrat",
+          chamber: "House",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+        },
+         {
+          name: "Laura Brown",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 7,
+          state: "Colorado",
+          party: "Republican",
+          chamber: "House",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+         
+        },
+        {
+          name: "Clarissa Vaughan",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 2,
+          state: "Colorado",
+          party: "Republican",
+          chamber: "Senate",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+          
+        },
+        {
+          name: "Virginia Woolf",
+          image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+          firstYear: 3,
+          state: "Colorado",
+          party: "Democrat",
+          chamber: "House",
+          district: "3rd",
+          bio: "No information yet. Click on the edit button to contribute!",
+          economy: "No information here yet. Be the first to contribute!",
+          environment: "No information here yet. Be the first to contribute!",
+          social: "No information here yet. Be the first to contribute!",
+          committees: "Judiciary"
+          
+        }
+      ];
+      
+      db.Person
+        .remove({})
+        .then(() => db.Person.collection.insertMany(stateSeed))
+        .then(data => {
+          console.log(data.result.n + " records inserted!");
+          process.exit(0);
+        })
+        .catch(err => {
+          console.error(err);
+          process.exit(1);
+        });*/
     

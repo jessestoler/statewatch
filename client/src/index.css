@@ -206,6 +206,19 @@ body {
   top: -45px;
 }
 
+.editIssue {
+  float: right;
+  position: relative;
+  top: -55px;
+}
+
+.editSocial {
+  float: right;
+  position: relative;
+  left: 210px;
+  top: -55px;
+}
+
 .feedback {
   border: 3px solid black;
   margin-bottom: 15px;
@@ -282,6 +295,19 @@ body {
   width: 100%;
 }
 
+.issues {
+  margin-left: 40px;
+  margin-top: 45px;
+  width: 70%;
+}
+
+.issues h3 {
+  border-bottom: 5px solid red;
+  font-family: 'Vidaloka', serif;
+  margin-bottom: 20px;
+
+}
+
 .left {
   float: left;
 }
@@ -352,14 +378,26 @@ body {
 
 .quickFacts {
   background-color: lightgray;
-  left: 350px;
+  left: 320px;
+  padding: 10px;
   position: absolute;
   top: 140px;
-  width: 500px;
+  width: 450px;
 }
 
 .quickFacts h3 {
   text-align: center;
+}
+
+.quickLinks {
+  background-color: purple;
+  height: 45px;
+  line-height: 45px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-left: 25px;
+
+  width: 60%
 }
 
 .red {
@@ -395,6 +433,11 @@ body {
   width: 125px;
   
 
+}
+
+.social {
+  margin-left: -40px;
+  width: 143%;
 }
 
 .stateBlogs {
@@ -498,7 +541,11 @@ body {
     margin-top: 10px;
   }
 
-
+  .quickFacts {
+    margin-left: 40px;
+    margin-top: 25px;
+    position: static;
+  }
 
   .summary {
     display: none;
