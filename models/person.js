@@ -7,6 +7,7 @@ const senatorSchema = new Schema({
   firstYear: { type: Number, required: true },
   state: { type: String, required: true },
   party: { type: String, required: true },
+  chamber: { type: String, required: true },
   district: { type: String, required: true },
   bio: { type: String, required: true },
   committees: { type: String, required: true }

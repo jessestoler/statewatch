@@ -86,7 +86,7 @@ spoon = () => {
          <p>Republicans: {this.state.book.senateGOP}</p>
          <p>Majority Leader: {this.state.book.senateMajority}</p>
          <p>Minority Leader: {this.state.book.senateMinority}</p>
-         <Link to={"/reps/" + this.state.book._id}>  <li>Find a Senator!</li>
+         <Link to={"/senators/" + this.state.book._id}>  <li>Find a Senator!</li>
            </Link>
         
        

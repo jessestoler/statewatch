@@ -2,7 +2,7 @@ module.exports = {
   Bill: require("./bill"),
   Blog: require("./blog"),
   Comment: require("./comment"),
-  Senator: require("./senator"),
+  Person: require("./person"),
   State: require("./state")
   
 

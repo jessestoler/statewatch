@@ -21,7 +21,8 @@ class Bill extends Component {
     style: {
         display: "none"
     },
-    commentTag: ""
+    commentTag: "",
+    idArray: []
     
   };
 
@@ -101,59 +102,130 @@ showList = () => {
             display: "block"
         }
       });
-};
+}; 
 
-update() {
+
+dislike = event => {
+this.setState({commentTag: event.target.nextSibling.innerHTML});
+
+
+
+setTimeout(
+  function() {
+      API.getComment(this.state.commentTag)
+      .then(res => this.setState({ commentInfo: res.data }) )  //this.setState({ commentInfo: res.data })
+     
+      .catch(err => console.log(err));
   
-   
-
-   
-            this.setState({commentTag: this.refs});
-           
-       
-        
   
+  }
+  .bind(this),
+  300
+);
 
-    setTimeout(
-        function() {
-            API.getComment(this.state.commentTag)
-            .then(res => this.setState({ commentInfo: res.data }))
-           
-            .catch(err => console.log(err));
-        
-        
-        }
-        .bind(this),
-        200
-    );
-
-    setTimeout(
-        function() {
-console.log(this.state);
-        
-        }
-        .bind(this),
-        300
-    );
-
-
-}
-
-joe = () => {
-
+setTimeout(
+  function() {
     axios.put("/api/comments/" + this.state.commentInfo._id, {
-        dislikes: this.state.commentInfo.dislikes + 1
-        
-      })
-      .then(response => {
-        this.loadBooks();
-      })
-      .catch(error => {
-        console.log(error);
-      })
+       dislikes: this.state.commentInfo.dislikes + 1,
+       amount: this.state.commentInfo.amount + 1
+       
+     })
+     .then(response => {
+     })
+     .catch(error => {
+       console.log(error);
+     });
+  
+  
+  }
+  .bind(this),
+  400
+);
+
+setTimeout(
+  function() {
+    axios.put("/api/comments/" + this.state.commentInfo._id, {
+       popularity: this.state.commentInfo.likes  / (this.state.commentInfo.amount + 1) 
+      
+       
+     })
+     .then(response => {
+       this.loadBooks();
+     })
+     .catch(error => {
+       console.log(error);
+     });
+  
+  
+  }
+  .bind(this),
+  500
+);
+
+
 };
 
+like = event => {
+  this.setState({commentTag: event.target.nextSibling.innerHTML});
+  
+  
+  
+  setTimeout(
+    function() {
+        API.getComment(this.state.commentTag)
+        .then(res => this.setState({ commentInfo: res.data }) )  //this.setState({ commentInfo: res.data })
+       
+        .catch(err => console.log(err));
+    
+    
+    }
+    .bind(this),
+    300
+  );
+  
+  setTimeout(
+    function() {
+      axios.put("/api/comments/" + this.state.commentInfo._id, {
+         likes: this.state.commentInfo.likes + 1,
+        
+         amount: this.state.commentInfo.amount + 1
+         
+       })
+       .then(response => {
+       })
+       .catch(error => {
+         console.log(error);
+       });
+    
+    
+    }
+    .bind(this),
+    400
+  );
 
+  setTimeout(
+    function() {
+      axios.put("/api/comments/" + this.state.commentInfo._id, {
+         popularity: (this.state.commentInfo.likes + 1)  / (this.state.commentInfo.amount + 1)
+        
+         
+       })
+       .then(response => {
+         this.loadBooks();
+       })
+       .catch(error => {
+         console.log(error);
+       });
+    
+    
+    }
+    .bind(this),
+    500
+  );
+  
+  
+  
+  };
 
   upvote = () => {
     axios.put("/api/bills/" + this.props.match.params.id, {
@@ -191,24 +263,6 @@ yes = () => {
 
 };
 
-fuck = () => {
-    axios.put("/api/comments/" + this.state.commentTag, {
-        dislikes: this.state.book.dislikes + 1,
-        popularity: this.state.book.likes / (this.state.book.amount + 1),
-        amount: this.state.book.amount + 1
-        
-      })
-      .then(response => {
-        this.loadBooks();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-};
-
-
-
   render() {
 
    
@@ -220,6 +274,8 @@ fuck = () => {
                <div className="sidebar">
               <Dropdown />
               </div>
+
+
    <div>
      <p className="content">{this.state.book.text}</p>
      <div className="vote">
@@ -241,7 +297,7 @@ fuck = () => {
       <div className="col-1">
       </div>
       <div className="col-4 scroll yays">
-      <h4>Arguments For</h4>
+      <h4 >Arguments For</h4>
       {this.state.beatles.map(beatle => 
 {
     return beatle.attachment === this.state.book.name && beatle.vote === "yes" ?
@@ -252,13 +308,16 @@ fuck = () => {
     <div className="left">
     <p>Likes</p>
     <p>{beatle.likes}</p>
-    <button ref="mexico" onClick={this.update.bind(this)} name={beatle._id} >Like</button>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{beatle._id}</p>
     </div>
     
     <div className="right">
     <p>Dislikes</p>
     <p>{beatle.dislikes}</p>
-    <button ref="yo" onClick={this.update.bind(this)} name={beatle._id} >Dislike</button>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{beatle._id}</p>
+    
     </div>
     </div>
    </div>
@@ -285,17 +344,20 @@ fuck = () => {
     <div className="amendments red">
     <p>{beatle.name}</p>  
     <p>{beatle.text}</p>
+    
     <div className="amendmentVotes">
     <div className="left">
     <p>Likes</p>
     <p>{beatle.likes}</p>
-    <button>Like</button>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{beatle._id}</p>
     </div>
     
     <div className="right">
     <p>Dislikes</p>
     <p>{beatle.dislikes}</p>
-    <button>Dislike</button>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{beatle._id}</p>
     </div>
     </div>
    </div>

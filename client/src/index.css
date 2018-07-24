@@ -458,6 +458,9 @@ body {
   float: right;
 }
 
+.voteTag {
+  display: none;
+}
 
 @media screen and (max-width: 980px) {
   body {

@@ -32,7 +32,7 @@ class Group extends Component {
   
 
   loadBooks = () => {
-    API.getSenators()
+    API.getPersons()
       .then(res =>
         this.setState({ beatles: res.data})
       )
@@ -55,7 +55,7 @@ class Group extends Component {
               <div className="cardContainer">
    {this.state.beatles.map(beatle => (
      <Link to={"/profile/" + beatle._id}> 
-     {beatle.state === this.state.books.name &&
+     {beatle.state === this.state.books.name && beatle.chamber === "Senate" &&
             <Cards 
             
               key={Math.random() * 12}

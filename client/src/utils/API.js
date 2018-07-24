@@ -2,20 +2,20 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getSenators: function() {
-    return axios.get("/api/senators");
+  getPersons: function() {
+    return axios.get("/api/persons");
   },
   // Gets the book with the given id
-  getSenator: function(id) {
-    return axios.get("/api/senators/" + id);
+  getPerson: function(id) {
+    return axios.get("/api/persons/" + id);
   },
   // Deletes the book with the given id
-  deleteSenator: function(id) {
-    return axios.delete("/api/senators/" + id);
+  deletePerson: function(id) {
+    return axios.delete("/api/persons/" + id);
   },
   // Saves a book to the database
-  saveSenator: function(senatorData) {
-    return axios.post("/api/senators", senatorData);
+  savePerson: function(personData) {
+    return axios.post("/api/persons", personData);
   },
   getBills: function() {
     return axios.get("/api/bills");

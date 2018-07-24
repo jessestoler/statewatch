@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import State from "./pages/State";
-import Group from "./pages/Group";
+import Senators from "./pages/Senators";
+import Reps from "./pages/Reps";
 import Blogindex from "./pages/Blogindex";
 import Blog from "./pages/Blog";
 import Submit from "./pages/Submit";
@@ -28,7 +29,8 @@ const App = () => (
       <Route exact path="/stateblog/:id" component={Blogindex} />
       <Route exact path="/stateblog/sorted/:id" component={Sortedblogindex} />
       <Route exact path="/profile/:id" component={Profile} />
-      <Route exact path="/reps/:id" component={Group} />
+      <Route exact path="/senators/:id" component={Senators} />
+      <Route exact path="/reps/:id" component={Reps} />
       <Route exact path="/submit/:id" component={Submit} />
       <Route exact path="/:id" component={State} />
       

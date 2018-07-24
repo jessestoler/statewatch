@@ -849,8 +849,9 @@ db.Blog
       name: "Mac McCutcheon",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 1,
-      state: "Alabama",
+      state: "Colorado",
       party: "Republican",
+      chamber: "House",
       district: "2nd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
@@ -860,8 +861,9 @@ db.Blog
       name: "Nathaniel Ledbetter",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 2,
-      state: "Alabama",
+      state: "Colorado",
       party: "Republican",
+      chamber: "Senate",
        district: "3rd",
        bio: "No information yet. Click on the edit button to contribute!",
        committees: "Judiciary"
@@ -871,8 +873,10 @@ db.Blog
       name: "Anthony Daniels",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 3,
-      state: "Alabama",
+      state: "Colorado",
       party: "Democrat",
+      chamber: "House",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
       
@@ -881,8 +885,10 @@ db.Blog
       name: "Bryce Edgmon",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 4,
-      state: "Alaska",
+      state: "Colorado",
       party: "Democrat",
+      chamber: "House",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
     },
@@ -890,8 +896,10 @@ db.Blog
       name: "David Mills",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 5,
-      state: "Alaska",
+      state: "Colorado",
       party: "Republican",
+      chamber: "Senate",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
       
@@ -900,8 +908,10 @@ db.Blog
       name: "William Somerset",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 6,
-      state: "Alaska",
+      state: "Colorado",
       party: "Democrat",
+      chamber: "House",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
     },
@@ -909,8 +919,10 @@ db.Blog
       name: "Laura Brown",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 7,
-      state: "Arizona",
+      state: "Colorado",
       party: "Republican",
+      chamber: "House",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
      
@@ -919,8 +931,10 @@ db.Blog
       name: "Clarissa Vaughan",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 2,
-      state: "Arizona",
+      state: "Colorado",
       party: "Republican",
+      chamber: "Senate",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
       
@@ -929,17 +943,19 @@ db.Blog
       name: "Virginia Woolf",
       image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
       firstYear: 3,
-      state: "Arizona",
+      state: "Colorado",
       party: "Democrat",
+      chamber: "House",
+      district: "3rd",
       bio: "No information yet. Click on the edit button to contribute!",
       committees: "Judiciary"
       
     }
   ];
   
-  db.Senator
+  db.Person
     .remove({})
-    .then(() => db.Senator.collection.insertMany(stateSeed))
+    .then(() => db.Person.collection.insertMany(stateSeed))
     .then(data => {
       console.log(data.result.n + " records inserted!");
       process.exit(0);

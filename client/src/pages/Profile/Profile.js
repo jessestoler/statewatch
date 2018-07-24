@@ -19,7 +19,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    API.getSenator(this.props.match.params.id)
+    API.getPerson(this.props.match.params.id)
       .then(res => this.setState({ book: res.data }))
      
       .catch(err => console.log(err));
@@ -44,7 +44,7 @@ class Profile extends Component {
 
 
 submitEdit = () => {
-  axios.put("/api/senators/" + this.props.match.params.id, {
+  axios.put("/api/persons/" + this.props.match.params.id, {
     bio: this.state.bio
   })
   .then(response => {
