@@ -13,29 +13,30 @@ class Blogindex extends Component {
   
 
   state = {
-    books: [],
-    beatles: []
+    blogs: [],
+    stateInfo: []
+    
   };
 
  
 
   componentDidMount() {
     API.getState(this.props.match.params.id)
-      .then(res => this.setState({ books: res.data }))
+      .then(res => this.setState({ stateInfo: res.data }))
      
       .catch(err => console.log(err));
 
-      this.loadBooks();
+      this.loadBlogs();
       
       
   }
 
   
 
-  loadBooks = () => {
+  loadBlogs = () => {
     API.getBlogs()
       .then(res =>
-        this.setState({ beatles: res.data})
+        this.setState({ blogs: res.data})
       )
       .catch(err => console.log(err));
       
@@ -52,30 +53,30 @@ class Blogindex extends Component {
     return (
       <div>
     <Header 
-              houseDems={this.state.books.name} />
+              houseDems={this.state.stateInfo.name} />
               <div className="sidebar">
               <Dropdown />
-              <Link to={"/submit/" + this.state.books._id}> 
+              <Link to={"/submit/" + this.state.stateInfo._id}> 
     <p>Got a Scoop of Your Own?</p>
     </Link>
               </div>
     
-              <p>Sort By: Date |<Link to={"/stateblog/sorted/" + this.state.books._id}> Popularity</Link></p>
+              <p>Sort By: Date |<Link to={"/stateblog/sorted/" + this.state.stateInfo._id}> Popularity</Link></p>
    
    <h4 className="noArticles">No Articles Here</h4>
-   {this.state.beatles.map(beatle => (
-   <Link to={"/blog/" + beatle._id}> 
-     {beatle.state === this.state.books.name &&
+   {this.state.blogs.map(blog => (
+   <Link to={"/blog/" + blog._id}> 
+     {blog.state === this.state.stateInfo.name &&
             <Blogentry 
             
               key={Math.random() * 12}
-              title={beatle.title}
-              text={beatle.text}
-              author={beatle.author}
-              summary={beatle.summary}
-              state={beatle.state}
-              likes={beatle.likes}
-              dislikes={beatle.dislikes}
+              title={blog.title}
+              text={blog.text}
+              author={blog.author}
+              summary={blog.summary}
+              state={blog.state}
+              likes={blog.likes}
+              dislikes={blog.dislikes}
             />
    }
             </Link>

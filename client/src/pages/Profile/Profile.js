@@ -9,24 +9,42 @@ import axios from "axios";
 
 class Profile extends Component {
   state = {
-    book: {},
+    person: {},
     style: {
       display: "none"
     },
     block: {
       display: "block"
-    }
+    },
+    economyStyle: {
+      display: "none"
+    },
+    economyBlock: {
+      display: "block"
+    },
+    environmentStyle: {
+      display: "none"
+    },
+    environmentBlock: {
+      display: "block"
+    },
+    socialStyle: {
+      display: "none"
+    },
+    socialBlock: {
+      display: "block"
+    },
   };
 
   componentDidMount() {
     API.getPerson(this.props.match.params.id)
-      .then(res => this.setState({ book: res.data }))
+      .then(res => this.setState({ person: res.data }))
      
       .catch(err => console.log(err));
     
   }
 
-  loadBooks = () => {
+  refresh = () => {
     window.location.reload();
   };
 
@@ -42,13 +60,88 @@ class Profile extends Component {
 
 };
 
+economyEdit = () => {
+  this.setState({
+    economyStyle: {
+      display: "block"
+    },
+    economyBlock: {
+      display: "none"
+    }
+  });
+
+};
+
+environmentEdit = () => {
+  this.setState({
+    environmentStyle: {
+      display: "block"
+    },
+    environmentBlock: {
+      display: "none"
+    }
+  });
+
+};
+
+socialEdit = () => {
+  this.setState({
+    socialStyle: {
+      display: "block"
+    },
+    socialBlock: {
+      display: "none"
+    }
+  });
+
+};
+
 
 submitEdit = () => {
   axios.put("/api/persons/" + this.props.match.params.id, {
     bio: this.state.bio
   })
   .then(response => {
-    this.loadBooks();
+    this.refresh();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+};
+
+submitEconomy = () => {
+  axios.put("/api/persons/" + this.props.match.params.id, {
+    economy: this.state.economy
+  })
+  .then(response => {
+    this.refresh();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+};
+
+submitEnvironment = () => {
+  axios.put("/api/persons/" + this.props.match.params.id, {
+    environment: this.state.environment
+  })
+  .then(response => {
+    this.refresh();
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+};
+
+submitSocial = () => {
+  axios.put("/api/persons/" + this.props.match.params.id, {
+    social: this.state.social
+  })
+  .then(response => {
+    this.refresh();
   })
   .catch(error => {
     console.log(error);
@@ -69,13 +162,13 @@ handleInputChange = event => {
     return (
       <div>
          <Header 
-              houseDems={this.state.book.name} />
-        <img className="profileImage" src={this.state.book.image} />
+              houseDems={this.state.person.name} />
+        <img className="profileImage" src={this.state.person.image} />
         <div className="quickFacts">
         <h3>Quick Facts</h3>
-        <p>Political Party: {this.state.book.party}</p>
-        <p>First Year: {this.state.book.firstYear}</p>
-        <p>District: {this.state.book.district}  </p>
+        <p>Political Party: {this.state.person.party}</p>
+        <p>First Year: {this.state.person.firstYear}</p>
+        <p>District: {this.state.person.district}  </p>
        
 
         </div>
@@ -85,8 +178,8 @@ handleInputChange = event => {
         <div className="bio">
           <h4>Biography</h4>
           <button className="editBio" onClick={this.edit}>Edit</button>
-          <p style={this.state.block}>{this.state.book.bio}</p>
-        <input className="bioInput" defaultValue={this.state.book.bio} name="bio" onChange={this.handleInputChange} style={this.state.style} type="text" />
+          <p style={this.state.block}>{this.state.person.bio}</p>
+        <input className="bioInput" defaultValue={this.state.person.bio} name="bio" onChange={this.handleInputChange} style={this.state.style} type="text" />
         <button onClick={this.submitEdit} style={this.state.style}>Done Editing</button>
           </div>
           <div className="quickLinks">
@@ -105,17 +198,23 @@ handleInputChange = event => {
 
 <div className="issues">
 <h3>Economy</h3>
-<button className="editIssue" onClick={this.edit}>Edit</button>
-<p>{this.state.book.economy}</p>
+<button className="editIssue" onClick={this.economyEdit}>Edit</button>
+<p style={this.state.economyBlock}>{this.state.person.economy}</p>
+<input className="bioInput" defaultValue={this.state.person.economy} name="economy" onChange={this.handleInputChange} style={this.state.economyStyle} type="text" />
+<button onClick={this.submitEconomy} style={this.state.economyStyle}>Done Editing</button>
 </div>
 <div className="issues">
 <h3>Environment</h3>
-<button className="editIssue" onClick={this.edit}>Edit</button>
-<p>{this.state.book.environment}</p>
+<button className="editIssue" onClick={this.environmentEdit}>Edit</button>
+<p style={this.state.environmentBlock}>{this.state.person.environment}</p>
+<input className="bioInput" defaultValue={this.state.person.environment} name="environment" onChange={this.handleInputChange} style={this.state.environmentStyle} type="text" />
+<button onClick={this.submitEnvironment} style={this.state.environmentStyle}>Done Editing</button>
 <div className="issues">
 <h3 className="social">Social</h3>
-<button className="editSocial" onClick={this.edit}>Edit</button>
-<p className="social">{this.state.book.social}</p>
+<button className="editSocial" onClick={this.socialEdit}>Edit</button>
+<p className="social" style={this.state.socialBlock}>{this.state.person.social}</p>
+<input className="socialInput" defaultValue={this.state.person.social} name="social" onChange={this.handleInputChange} style={this.state.socialStyle} type="text" />
+<button className="socialButton" onClick={this.submitSocial} style={this.state.socialStyle}>Done Editing</button>
 </div>
 
 </div>

@@ -5,7 +5,7 @@ const Header = props => (
     <div className="header">
      
             
-                <p>{props.houseDems}</p>  
+                <h1>{props.houseDems}</h1>  
                 
             
        

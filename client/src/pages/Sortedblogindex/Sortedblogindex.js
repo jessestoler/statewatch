@@ -13,28 +13,28 @@ class Blogindex extends Component {
   
 
   state = {
-    books: [],
-    beatles: []
+    stateInfo: [],
+    votes: []
   };
 
  
 
   componentDidMount() {
     API.getState(this.props.match.params.id)
-      .then(res => this.setState({ books: res.data }))
+      .then(res => this.setState({ stateInfo: res.data }))
      
       .catch(err => console.log(err));
 
-      this.loadBooks();
+      this.loadBlogs();
       
   }
 
   
 
-  loadBooks = () => {
+  loadBlogs = () => {
     API.getVotes()
       .then(res =>
-        this.setState({ beatles: res.data})
+        this.setState({ votes: res.data})
       )
       .catch(err => console.log(err));
   };
@@ -48,28 +48,28 @@ class Blogindex extends Component {
     return (
       <div>
     <Header 
-              houseDems={this.state.books.name} />
+              houseDems={this.state.stateInfo.name} />
               <div className="sidebar">
               <Dropdown />
-              <Link to={"/submit/" + this.state.books._id}> 
+              <Link to={"/submit/" + this.state.stateInfo._id}> 
     <p>Got a Scoop of Your Own?</p>
     </Link>
               </div>
               <div className="blogList">
-              <p>Sort By: <Link to={"/stateblog/" + this.state.books._id}>Date</Link> | Popularity</p>
-   {this.state.beatles.map(beatle => (
-   <Link to={"/blog/" + beatle._id}> 
-     {beatle.state === this.state.books.name &&
+              <p>Sort By: <Link to={"/stateblog/" + this.state.stateInfo._id}>Date</Link> | Popularity</p>
+   {this.state.votes.map(vote => (
+   <Link to={"/blog/" + vote._id}> 
+     {vote.state === this.state.stateInfo.name &&
             <Blogentry 
             
               key={Math.random() * 12}
-              title={beatle.title}
-              text={beatle.text}
-              author={beatle.author}
-              summary={beatle.summary}
-              state={beatle.state}
-              likes={beatle.likes}
-              dislikes={beatle.dislikes}
+              title={vote.title}
+              text={vote.text}
+              author={vote.author}
+              summary={vote.summary}
+              state={vote.state}
+              likes={vote.likes}
+              dislikes={vote.dislikes}
             />
    }
             </Link>

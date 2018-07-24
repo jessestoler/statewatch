@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react";
 import axios from "axios";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
@@ -12,23 +11,22 @@ import { Link } from "react-router-dom";
 
 class Bill extends Component {
   state = {
-    book: {},
+    billData: {},
     commentInfo: {},
     name: "",
     text: "",
     vote: "",
-    beatles: [],
+    comments: [],
     style: {
         display: "none"
     },
-    commentTag: "",
-    idArray: []
+    commentTag: ""
     
   };
 
   componentDidMount() {
     API.getBill(this.props.match.params.id)
-      .then(res => this.setState({ book: res.data }))
+      .then(res => this.setState({ billData: res.data }))
      
       .catch(err => console.log(err));
       this.loadComments();
@@ -41,7 +39,7 @@ class Bill extends Component {
       API.saveComment({
         name: this.state.name,
         text: this.state.text,
-        attachment: this.state.book.name,
+        attachment: this.state.billData.name,
         type: "bill",
         likes: 0,
         dislikes: 0,
@@ -52,7 +50,7 @@ class Bill extends Component {
        
       })
 
-      .then(res => this.loadBooks())
+      .then(res => this.refresh())
       .catch(err => console.log(err));
 
     
@@ -68,27 +66,27 @@ class Bill extends Component {
     });
   };
 
-  loadBooks = () => {
+  refresh = () => {
     window.location.reload();
   };
 
   loadComments = () => {
     API.getComments()
       .then(res =>
-        this.setState({ beatles: res.data})
+        this.setState({ comments: res.data})
       )
       .catch(err => console.log(err));
   };
 
   downvote = () => {
     axios.put("/api/bills/" + this.props.match.params.id, {
-      dislikes: this.state.book.dislikes + 1,
-      popularity: this.state.book.likes / (this.state.book.votes + 1),
-      votes: this.state.book.votes + 1
+      dislikes: this.state.billData.dislikes + 1,
+      popularity: this.state.billData.likes / (this.state.billData.votes + 1),
+      votes: this.state.billData.votes + 1
       
     })
     .then(response => {
-      this.loadBooks();
+      this.refresh();
     })
     .catch(error => {
       console.log(error);
@@ -113,7 +111,7 @@ this.setState({commentTag: event.target.nextSibling.innerHTML});
 setTimeout(
   function() {
       API.getComment(this.state.commentTag)
-      .then(res => this.setState({ commentInfo: res.data }) )  //this.setState({ commentInfo: res.data })
+      .then(res => this.setState({ commentInfo: res.data }) )  
      
       .catch(err => console.log(err));
   
@@ -150,7 +148,7 @@ setTimeout(
        
      })
      .then(response => {
-       this.loadBooks();
+       this.refresh();
      })
      .catch(error => {
        console.log(error);
@@ -173,7 +171,7 @@ like = event => {
   setTimeout(
     function() {
         API.getComment(this.state.commentTag)
-        .then(res => this.setState({ commentInfo: res.data }) )  //this.setState({ commentInfo: res.data })
+        .then(res => this.setState({ commentInfo: res.data }) )  
        
         .catch(err => console.log(err));
     
@@ -211,7 +209,7 @@ like = event => {
          
        })
        .then(response => {
-         this.loadBooks();
+         this.refresh();
        })
        .catch(error => {
          console.log(error);
@@ -229,13 +227,13 @@ like = event => {
 
   upvote = () => {
     axios.put("/api/bills/" + this.props.match.params.id, {
-      likes: this.state.book.likes + 1,
-      popularity: (this.state.book.likes + 1) / (this.state.book.votes + 1),
-      votes: this.state.book.votes + 1
+      likes: this.state.billData.likes + 1,
+      popularity: (this.state.billData.likes + 1) / (this.state.billData.votes + 1),
+      votes: this.state.billData.votes + 1
       
     })
     .then(response => {
-      this.loadBooks();
+      this.refresh();
     })
     .catch(error => {
       console.log(error);
@@ -270,24 +268,24 @@ yes = () => {
     return (
       <div>
          <Header 
-              houseDems={this.state.book.name} />
+              houseDems={this.state.billData.name} />
                <div className="sidebar">
               <Dropdown />
               </div>
 
 
    <div>
-     <p className="content">{this.state.book.text}</p>
+     <p className="content">{this.state.billData.text}</p>
      <div className="vote">
-     <p className="voteLeft">Yays: {this.state.book.likes}</p>
+     <p className="voteLeft">Yays: {this.state.billData.likes}</p>
       <button className="voteLeft" onClick={this.upvote}>Yay</button>
-      <p className="voteRight">Nays: {this.state.book.dislikes}</p>
+      <p className="voteRight">Nays: {this.state.billData.dislikes}</p>
       <button className="voteRight" onClick={this.downvote}>Nay</button>
       </div>
       <Chart
         chartType="PieChart"
-        data={[['Task', 'Hours per Day'],["Nays", this.state.book.dislikes],["Yays", this.state.book.likes]]}
-        options={{"title":"Party Breakdown","pieHole":0.4,"is3D":true, "colors": ["red", "green"]}}
+        data={[['Task', 'Hours per Day'],["Nays", this.state.billData.dislikes],["Yays", this.state.billData.likes]]}
+        options={{"title":"Popularity","pieHole":0.4,"is3D":true, "colors": ["red", "green"]}}
         graph_id="votes"
         width="100%"
         height="100px"
@@ -298,25 +296,25 @@ yes = () => {
       </div>
       <div className="col-4 scroll yays">
       <h4 >Arguments For</h4>
-      {this.state.beatles.map(beatle => 
+      {this.state.comments.map(comment => 
 {
-    return beatle.attachment === this.state.book.name && beatle.vote === "yes" ?
+    return comment.attachment === this.state.billData.name && comment.vote === "yes" ?
     <div className="amendments green">
-    <p>{beatle.name}</p>  
-    <p>{beatle.text}</p>
+    <p>{comment.name}</p>  
+    <p>{comment.text}</p>
     <div className="amendmentVotes">
     <div className="left">
     <p>Likes</p>
-    <p>{beatle.likes}</p>
+    <p>{comment.likes}</p>
     <button onClick={this.like}>Like</button>
-    <p className="voteTag">{beatle._id}</p>
+    <p className="voteTag">{comment._id}</p>
     </div>
     
     <div className="right">
     <p>Dislikes</p>
-    <p>{beatle.dislikes}</p>
+    <p>{comment.dislikes}</p>
     <button onClick={this.dislike}>Dislike</button>
-    <p className="voteTag">{beatle._id}</p>
+    <p className="voteTag">{comment._id}</p>
     
     </div>
     </div>
@@ -338,26 +336,26 @@ yes = () => {
       </div>
       <div className="col-4 nays scroll">
       <h4>Arguments Against</h4>
-      {this.state.beatles.map(beatle => 
+      {this.state.comments.map(comment => 
 {
-    return beatle.attachment === this.state.book.name && beatle.vote === "no" ?
+    return comment.attachment === this.state.billData.name && comment.vote === "no" ?
     <div className="amendments red">
-    <p>{beatle.name}</p>  
-    <p>{beatle.text}</p>
+    <p>{comment.name}</p>  
+    <p>{comment.text}</p>
     
     <div className="amendmentVotes">
     <div className="left">
     <p>Likes</p>
-    <p>{beatle.likes}</p>
+    <p>{comment.likes}</p>
     <button onClick={this.like}>Like</button>
-    <p className="voteTag">{beatle._id}</p>
+    <p className="voteTag">{comment._id}</p>
     </div>
     
     <div className="right">
     <p>Dislikes</p>
-    <p>{beatle.dislikes}</p>
+    <p>{comment.dislikes}</p>
     <button onClick={this.dislike}>Dislike</button>
-    <p className="voteTag">{beatle._id}</p>
+    <p className="voteTag">{comment._id}</p>
     </div>
     </div>
    </div>

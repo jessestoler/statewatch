@@ -107,6 +107,7 @@ body {
 }
 
 .cards {
+  border: 30px solid white;
   color: white;
   display: inline-block;
   margin-bottom: 20px;
@@ -117,8 +118,9 @@ body {
 }
 
 .cards img {
-  height: 200px;
-  width: 200px;
+  height: 80%;
+  margin-bottom: 10px;
+  width: 80%;
 }
 
 .commentButton {
@@ -214,8 +216,9 @@ body {
 
 .editSocial {
   float: right;
+  left: 36%;
   position: relative;
-  left: 210px;
+  
   top: -55px;
 }
 
@@ -440,6 +443,18 @@ body {
   width: 143%;
 }
 
+.socialButton {
+  position: relative;
+  right: 30px;
+}
+
+.socialInput {
+  height: 200px;
+  left: -30px;
+  position: relative;
+  width: 100%;
+}
+
 .stateBlogs {
   background-color: black;
   height: 90px;
@@ -510,6 +525,10 @@ body {
     background-color: white;
   }
 
+  .editSocial {
+    left: 33%;
+  }
+
   .quickFacts {
     width: 350px;
   }
@@ -526,13 +545,15 @@ body {
     width: 170px;
   }
 
+  .editSocial {
+    left: 26%;
+  }
+
   .groupDropdown {
     display: block;
   }
 
-  .sidebar {
-    display: none;
-  }
+
 
   .mobileDropdown {
     display: block;
@@ -545,6 +566,10 @@ body {
     margin-left: 40px;
     margin-top: 25px;
     position: static;
+  }
+
+  .sidebar {
+    display: none;
   }
 
   .summary {

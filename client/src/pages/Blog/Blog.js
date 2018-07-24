@@ -11,17 +11,17 @@ import { Link } from "react-router-dom";
 
 class Blog extends Component {
   state = {
-    book: {},
+    blog: {},
     name: "",
     text: "",
    
-    beatles: []
+    comments: []
     
   };
 
   componentDidMount() {
     API.getBlog(this.props.match.params.id)
-      .then(res => this.setState({ book: res.data }))
+      .then(res => this.setState({ blog: res.data }))
      
       .catch(err => console.log(err));
       this.loadComments();
@@ -34,7 +34,7 @@ class Blog extends Component {
       API.saveComment({
         name: this.state.name,
         text: this.state.text,
-        attachment: this.state.book.title,
+        attachment: this.state.blog.title,
         type: "blog",
         likes: 0,
         dislikes: 0,
@@ -45,7 +45,7 @@ class Blog extends Component {
        
       })
 
-      .then(res => this.loadBooks())
+      .then(res => this.refresh())
       .catch(err => console.log(err));
 
     
@@ -61,27 +61,27 @@ class Blog extends Component {
     });
   };
 
-  loadBooks = () => {
+  refresh = () => {
     window.location.reload();
   };
 
   loadComments = () => {
     API.getComments()
       .then(res =>
-        this.setState({ beatles: res.data})
+        this.setState({ comments: res.data})
       )
       .catch(err => console.log(err));
   };
 
   downvote = () => {
     axios.put("/api/blogs/" + this.props.match.params.id, {
-      dislikes: this.state.book.dislikes + 1,
-      popularity: this.state.book.likes / (this.state.book.votes + 1),
-      votes: this.state.book.votes + 1
+      dislikes: this.state.blog.dislikes + 1,
+      popularity: this.state.blog.likes / (this.state.blog.votes + 1),
+      votes: this.state.blog.votes + 1
       
     })
     .then(response => {
-      this.loadBooks();
+      this.refresh();
     })
     .catch(error => {
       console.log(error);
@@ -92,13 +92,13 @@ class Blog extends Component {
 
   upvote = () => {
     axios.put("/api/blogs/" + this.props.match.params.id, {
-      likes: this.state.book.likes + 1,
-      popularity: (this.state.book.likes + 1) / (this.state.book.votes + 1),
-      votes: this.state.book.votes + 1
+      likes: this.state.blog.likes + 1,
+      popularity: (this.state.blog.likes + 1) / (this.state.blog.votes + 1),
+      votes: this.state.blog.votes + 1
       
     })
     .then(response => {
-      this.loadBooks();
+      this.refresh();
     })
     .catch(error => {
       console.log(error);
@@ -112,27 +112,27 @@ class Blog extends Component {
     return (
       <div>
          <Header 
-              houseDems={this.state.book.title} />
+              houseDems={this.state.blog.title} />
                <div className="sidebar">
               <Dropdown />
               </div>
    <div>
-     <p className="byline">By {this.state.book.author}</p>
-     <p className="content">{this.state.book.text}</p>
+     <p className="byline">By {this.state.blog.author}</p>
+     <p className="content">{this.state.blog.text}</p>
      <div className="vote">
-     <p className="voteLeft">Likes: {this.state.book.likes}</p>
+     <p className="voteLeft">Likes: {this.state.blog.likes}</p>
       <button className="voteLeft" onClick={this.upvote}>Like</button>
-      <p className="voteRight">Dislikes: {this.state.book.dislikes}</p>
+      <p className="voteRight">Dislikes: {this.state.blog.dislikes}</p>
       <button className="voteRight" onClick={this.downvote}>Dislike</button>
       </div>
     <div className="commentSection">
-     <p className="commentTotal">This post has {this.state.beatles.filter(beatle => beatle.attachment == this.state.book.title).length } {this.state.beatles.filter(beatle => beatle.attachment == this.state.book.title).length === 1? 'comment' : 'comments'} </p>
-     {this.state.beatles.map(beatle => 
+     <p className="commentTotal">This post has {this.state.comments.filter(comment => comment.attachment == this.state.blog.title).length } {this.state.comments.filter(comment => comment.attachment == this.state.blog.title).length === 1? 'comment' : 'comments'} </p>
+     {this.state.comments.map(comment => 
 {
-    return beatle.attachment === this.state.book.title ?
+    return comment.attachment === this.state.blog.title ?
     <div className="feedback">
-    <p>{beatle.name}</p>  
-    <p>{beatle.text}</p>
+    <p>{comment.name}</p>  
+    <p>{comment.text}</p>
  
    </div>
     

@@ -61,7 +61,6 @@ class Group extends Component {
               key={Math.random() * 12}
               name={beatle.name}
               image={beatle.image}
-              firstYear={beatle.firstYear}
               party={beatle.party}
               district={beatle.district}
             />
