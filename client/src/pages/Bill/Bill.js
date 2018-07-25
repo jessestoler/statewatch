@@ -274,13 +274,18 @@ yes = () => {
               </div>
 
 
-   <div>
+   <div >
      <p className="content">{this.state.billData.text}</p>
      <div className="vote">
-     <p className="voteLeft">Yays: {this.state.billData.likes}</p>
-      <button className="voteLeft" onClick={this.upvote}>Yay</button>
-      <p className="voteRight">Nays: {this.state.billData.dislikes}</p>
-      <button className="voteRight" onClick={this.downvote}>Nay</button>
+      <div className="voteLeft">
+      <button onClick={this.upvote}>Yay</button><br />
+      <p className="billScore">{this.state.billData.likes}</p>
+      </div>
+     
+     <div className="voteRight">
+      <button onClick={this.downvote}>Nay</button><br />
+      <p className="billScore">{this.state.billData.dislikes}</p>
+      </div>
       </div>
       <Chart
         chartType="PieChart"
@@ -293,46 +298,6 @@ yes = () => {
       />
       <div className="billFeedback row">
       <div className="col-1">
-      </div>
-      <div className="col-4 scroll yays">
-      <h4 >Arguments For</h4>
-      {this.state.comments.map(comment => 
-{
-    return comment.attachment === this.state.billData.name && comment.vote === "yes" ?
-    <div className="amendments green">
-    <p>{comment.name}</p>  
-    <p>{comment.text}</p>
-    <div className="amendmentVotes">
-    <div className="left">
-    <p>Likes</p>
-    <p>{comment.likes}</p>
-    <button onClick={this.like}>Like</button>
-    <p className="voteTag">{comment._id}</p>
-    </div>
-    
-    <div className="right">
-    <p>Dislikes</p>
-    <p>{comment.dislikes}</p>
-    <button onClick={this.dislike}>Dislike</button>
-    <p className="voteTag">{comment._id}</p>
-    
-    </div>
-    </div>
-   </div>
-    
-   
-
-
-
-    :
-        <h1></h1>
-}
-
-     
-          )}
-          
-      </div>
-      <div className="col-2">
       </div>
       <div className="col-4 nays scroll">
       <h4>Arguments Against</h4>
@@ -371,6 +336,49 @@ yes = () => {
      
           )}
       </div>
+   
+      <div className="col-2">
+      </div>
+
+         <div className="col-4 scroll yays">
+      <h4 >Arguments For</h4>
+      {this.state.comments.map(comment => 
+{
+    return comment.attachment === this.state.billData.name && comment.vote === "yes" ?
+    <div className="amendments green">
+    <p>{comment.name}</p>  
+    <p>{comment.text}</p>
+    <div className="amendmentVotes">
+    <div className="left">
+    <p>Likes</p>
+    <p>{comment.likes}</p>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+    
+    <div className="right">
+    <p>Dislikes</p>
+    <p>{comment.dislikes}</p>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{comment._id}</p>
+    
+    </div>
+    </div>
+   </div>
+    
+   
+
+
+
+    :
+        <h1></h1>
+}
+
+     
+          )}
+          
+      </div>
+
       <div className="col-1">
       </div>
       </div>

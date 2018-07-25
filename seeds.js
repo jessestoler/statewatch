@@ -417,20 +417,20 @@
     mainImage: "https://s-i.huffpost.com/gen/2118824/images/o-MONTANA-STATEHOUSE-facebook.jpg"
   },
    {
-    name: "Nebraska",
-       houseDems: 17,
-    houseGOP: 21,
-    houseOther: 2,
-    senateDems: 6,
-    senateGOP: 14,
-    senateOther: 0,
-    speaker: "Bryce Edgmon",
-    houseMajority: "Chris Tuck",
-    houseMinority: "Charrisse Millett",
-    senateMajority: "Peter Micciche",
-    senateMinority: "Berta Gardner",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/2000px-Flag_of_Alaska.svg.png",
-    mainImage: "https://krbd-org.s3.amazonaws.com/wp-content/uploads/2013/10/Alaska_State_Capitol-e1381353775419.jpg"
+    "name": "Nebraska",
+       "houseDems": 17,
+    "houseGOP": 21,
+    "houseOther": 2,
+    "senateDems": 6,
+    "senateGOP": 14,
+    "senateOther": 0,
+    "speaker": "Bryce Edgmon",
+    "houseMajority": "Chris Tuck",
+    "houseMinority": "Charrisse Millett",
+    "senateMajority": "Peter Micciche",
+    "senateMinority": "Berta Gardner",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/2000px-Flag_of_Alaska.svg.png",
+    "mainImage": "https://krbd-org.s3.amazonaws.com/wp-content/uploads/2013/10/Alaska_State_Capitol-e1381353775419.jpg"
   },
    {
     name: "Nevada",
@@ -1164,4 +1164,70 @@ db.Blog
           console.error(err);
           process.exit(1);
         });*/
+        const express = require('express');
+        const mongoose = require("mongoose");
+        const db = require("./models");
+        const app = express();
+var PORT = process.env.PORT || 5000;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/deliverance";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
+
+const stateSeed = [
+  {
+    name: "Arrival",
+    sponsor: "Denis Villeneuve",
+    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+    summary: "A linguist attempts to establish communication with aliens",
+    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+    state: "Colorado",
+    likes: "0",
+    dislikes: "0",
+    popularity: "0",
+    votes: "0"
+  },
+  {
+    name: "Get Out",
+    sponsor: "Jordan Peele",
+    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+    summary: "A black man meets his white girlfriend's family.",
+    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+    state: "Colorado",
+    likes: "0",
+    dislikes: "0",
+    popularity: "0",
+    votes: "0"
+  },
+  {
+    name: "Son of Saul",
+    sponsor: "Laszlo Nemes",
+    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+    summary: "A prisoner in a concentration camp seeks a proper burial for a child.",
+    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
+    state: "Colorado",
+    likes: "0",
+    dislikes: "0",
+    popularity: "0",
+    votes: "0"
+  }
+
+];
+
+db.Bill
+  .remove({})
+  .then(() => db.Bill.collection.insertMany(stateSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+
+app.listen(PORT, function() {
+    console.log("App running on port " + PORT + "!");
     
+  });

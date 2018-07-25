@@ -8,7 +8,7 @@ import Dropdown from "../../components/Dropdown";
 
 class Submit extends Component {
   state = {
-    book: {},
+    stateInfo: {},
     author: "",
     text: "",
     state: "",
@@ -20,7 +20,7 @@ class Submit extends Component {
   componentDidMount() {
    
     API.getState(this.props.match.params.id)
-    .then(res => this.setState({ book: res.data }))
+    .then(res => this.setState({ stateInfo: res.data }))
    
     .catch(err => console.log(err));
     
@@ -35,14 +35,14 @@ class Submit extends Component {
         author: this.state.author,
         text: this.state.text,
         summary: this.state.text.substring(0, 100),
-        state: this.state.book.name,
+        state: this.state.stateInfo.name,
         likes: 0,
         dislikes: 0,
         popularity: 0,
         votes: 0
       })
 
-      .then(res => this.loadBooks())
+      .then(res => this.jump())
       .catch(err => console.log(err));
 
     
@@ -59,8 +59,8 @@ class Submit extends Component {
  
   };
 
-  loadBooks = () => {
-    window.location = "/stateblog/" + this.state.book._id;
+  jump = () => {
+    window.location = "/stateblog/" + this.state.stateInfo._id;
   };
 
 

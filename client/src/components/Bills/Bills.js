@@ -8,10 +8,13 @@ const Bills = props => (
     <div className="bills" >
      
             
-                <p>{props.name}</p>  
-               
-                <img src={props.image} />
-                <p>{props.sponsor}</p>
+                <p className="billName">{props.name}</p>  
+                
+                <img className="billImage" src={props.image} />
+                <div className="sponsor">
+                <h6>Main Sponsor(s):</h6>
+                <p >{props.sponsor}</p>
+                </div>
                 
                 
                

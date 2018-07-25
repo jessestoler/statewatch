@@ -4,7 +4,6 @@ import API from "../../utils/API";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Dropdown from "../../components/Dropdown";
-import Comments from "../../components/Comments";
 import { Link } from "react-router-dom";
 
 

@@ -15,8 +15,8 @@
 }
 
 .billContainer img {
-  height: 10px;
-  width: 10px;
+  height: 90px;
+  width: 90px;
 }
 
 .billFeedback {
@@ -25,11 +25,32 @@
   width: 100%;
 }
 
+.billImage {
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+
+
+
+.billName {
+  font-family: 'Cookie', cursive;
+  font-size: 225%;
+  text-align: center;
+}
+
 .bills {
-  background-color: mediumseagreen;
+  background-color: white;
   display: inline-block;
+  height: 315px;
   margin: 35px;
   width: 250px;
+}
+
+.billScore {
+  left: 18px;
+  position: relative;
+  top: 5px;
 }
 
 .bio {
@@ -164,8 +185,10 @@ body {
 
 
 .content {
+  background-color: white;
   margin-left: 15%;
   margin-right: 15%;
+  padding: 5%;
   text-align: center;
 }
 
@@ -351,8 +374,21 @@ body {
  
 }
 
+.mobile {
+
+  display: none;
+}
+
 .mobileDropdown {
   display: none;
+}
+
+.mobileHouse {
+  text-align: center;
+}
+
+.mobileParties {
+  text-align: center;
 }
 
 .noArticles {
@@ -455,6 +491,14 @@ body {
   width: 100%;
 }
 
+.sponsor {
+  color: black;
+  left: 35px;
+  position: relative;
+  top: 90px;
+ 
+}
+
 .stateBlogs {
   background-color: black;
   height: 90px;
@@ -522,7 +566,7 @@ body {
 
 @media screen and (max-width: 980px) {
   body {
-    background-color: white;
+    background-color: mediumspringgreen;
   }
 
   .editSocial {
@@ -545,6 +589,10 @@ body {
     width: 170px;
   }
 
+  .desktop {
+    display: none;
+  }
+
   .editSocial {
     left: 26%;
   }
@@ -553,7 +601,9 @@ body {
     display: block;
   }
 
-
+  .mobile {
+    display: block;
+  }
 
   .mobileDropdown {
     display: block;
@@ -566,6 +616,10 @@ body {
     margin-left: 40px;
     margin-top: 25px;
     position: static;
+  }
+
+  .row {
+    margin-bottom: 25px;
   }
 
   .sidebar {
