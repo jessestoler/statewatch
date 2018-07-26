@@ -71,7 +71,7 @@ class Main extends Component {
        
      
         </div>
-              <iframe className="map" src="https://createaclickablemap.com/map.php?&id=72603&maplocation=false&online=true" ></iframe>
+        <iframe className="map" src="https://createaclickablemap.com/map.php?id=72860&maplocation=&online=true" ></iframe>
               <div className="mainDropdown">
               <Dropdown />
               </div>

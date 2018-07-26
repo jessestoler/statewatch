@@ -10,9 +10,9 @@ const personSchema = new Schema({
   chamber: { type: String, required: true },
   district: { type: String, required: true },
   bio: { type: String, required: true },
-  economy: { type: String, required: true },
-  environment: { type: String, required: true },
-  social: { type: String, required: true },
+  economy: { type: String },
+  environment: { type: String },
+  social: { type: String },
   committees: { type: String, required: true }
   
 });
