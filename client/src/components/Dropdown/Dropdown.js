@@ -70,7 +70,7 @@ class Dropdown extends Component {
     <button className="dropdownButton" onClick={this.showList} >&#9660;</button> 
     <p className="dropdownText" style={this.state.styleTwo} >Select State</p>
     </div>
-     
+     <br />
       <ul className="dropdown" style={this.state.style}>
       {this.state.books.map(a => (
           <Link to={"/" + a._id}>  <li onClick={this.refresh} className="dropdownItems">{a.name}</li>

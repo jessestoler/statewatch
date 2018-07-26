@@ -78,7 +78,9 @@ class Blogindex extends Component {
      
           ))}
     </div>
-    
+    <div className="indexDropdown">
+    <Dropdown />
+    </div>
     
     <div className="indexFooter">
 <Footer />

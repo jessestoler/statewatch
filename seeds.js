@@ -1178,7 +1178,7 @@ const stateSeed = [
   {
     name: "Arrival",
     sponsor: "Denis Villeneuve",
-    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+    image: "https://img.clipartxtras.com/29b517d4568908e13eb39a14cb5ac9a9_coloring-page-of-shaking-hands-between-two-people-coloring-point-shaking-hands-drawing-kids_500-430.jpeg",
     summary: "A linguist attempts to establish communication with aliens",
     text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
     state: "Colorado",
@@ -1202,7 +1202,7 @@ const stateSeed = [
   {
     name: "Son of Saul",
     sponsor: "Laszlo Nemes",
-    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
+    image: "http://getdrawings.com/image/earth-planet-drawing-51.png",
     summary: "A prisoner in a concentration camp seeks a proper burial for a child.",
     text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
     state: "Colorado",

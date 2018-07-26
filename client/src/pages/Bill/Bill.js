@@ -18,8 +18,16 @@ class Bill extends Component {
     vote: "",
     comments: [],
     style: {
+       
         display: "none"
     },
+    inputStyle: {
+      display: "block"
+    },
+    textStyle: {
+      display: "none"
+    },
+  
     commentTag: ""
     
   };
@@ -41,6 +49,7 @@ class Bill extends Component {
         text: this.state.text,
         attachment: this.state.billData.name,
         type: "bill",
+        summary: this.state.text.substring(0, 100),
         likes: 0,
         dislikes: 0,
         popularity: 0,
@@ -98,9 +107,17 @@ showList = () => {
     this.setState({
         style: {
             display: "block"
+        },
+        inputStyle: {
+          display: "none"
         }
       });
 }; 
+
+
+
+
+
 
 
 dislike = event => {
@@ -246,6 +263,9 @@ no = () => {
         vote: "no",
         style: {
             display: "none"
+        },
+        inputStyle: {
+          display: "block"
         }
       });
 
@@ -255,11 +275,17 @@ yes = () => {
     this.setState({
         vote: "yes",
         style: {
-            display: "none"
-        }
+            display: "none"},
+
+            inputStyle: {
+              display: "block"
+            }
+        
       });
 
 };
+
+
 
   render() {
 
@@ -292,36 +318,129 @@ yes = () => {
         data={[['Task', 'Hours per Day'],["Nays", this.state.billData.dislikes],["Yays", this.state.billData.likes]]}
         options={{"title":"Popularity","pieHole":0.4,"is3D":true, "colors": ["red", "green"]}}
         graph_id="votes"
-        width="100%"
+        width="120%"
         height="100px"
         legend_toggle
       />
+      <div className="mobileFeedback">
+      <div className="row">
+      <div className="col-3">
+      </div>
+      <div className="col-6 nays scroll">
+      <h4>Arguments Against</h4>
+      {this.state.comments.map(comment => 
+{
+    return comment.attachment === this.state.billData.name && comment.vote === "no" ?
+    <div className="amendments red" >
+    <h4>{comment.name}</h4>  
+    <p >{comment.text}</p>
+    <div className="amendmentVotes">
+    <div className="left">
+    <p>Dislikes</p>
+    <p className="commentScore">{comment.dislikes}</p>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+
+    <div className="right">
+    <p>Likes</p>
+    <p className="commentScore">{comment.likes}</p>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+    
+ 
+    </div>
+   </div>
+    
+   
+
+
+
+    :
+        <h1></h1>
+}
+
+     
+          )}
+          </div>
+          <div className="col-3">
+      </div>
+      </div>
+      <div className="row">
+      <div className="col-3">
+      </div>
+      <div className="col-6 nays scroll">
+      <h4>Arguments For</h4>
+      {this.state.comments.map(comment => 
+{
+    return comment.attachment === this.state.billData.name && comment.vote === "yes" ?
+    <div className="amendments green" >
+    <h4>{comment.name}</h4>  
+    <p >{comment.text}</p>
+    
+    <div className="amendmentVotes">
+    <div className="left">
+    <p>Dislikes</p>
+    <p className="commentScore">{comment.dislikes}</p>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+
+    <div className="right">
+    <p>Likes</p>
+    <p className="commentScore">{comment.likes}</p>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+    
+ 
+    </div>
+   </div>
+    
+   
+
+
+
+    :
+        <h1></h1>
+}
+
+     
+          )}
+          </div>
+          <div className="col-3">
+      </div>
+      </div>
+      </div>
+     
       <div className="billFeedback row">
       <div className="col-1">
       </div>
-      <div className="col-4 nays scroll">
+      <div className="col-4 scroll">
       <h4>Arguments Against</h4>
       {this.state.comments.map(comment => 
 {
     return comment.attachment === this.state.billData.name && comment.vote === "no" ?
     <div className="amendments red">
-    <p>{comment.name}</p>  
-    <p>{comment.text}</p>
-    
+     <h4>{comment.name}</h4>  
+    <p >{comment.text}</p>
     <div className="amendmentVotes">
     <div className="left">
+    <p>Dislikes</p>
+    <p className="commentScore">{comment.dislikes}</p>
+    <button onClick={this.dislike}>Dislike</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+
+    <div className="right">
     <p>Likes</p>
-    <p>{comment.likes}</p>
+    <p className="commentScore">{comment.likes}</p>
     <button onClick={this.like}>Like</button>
     <p className="voteTag">{comment._id}</p>
     </div>
     
-    <div className="right">
-    <p>Dislikes</p>
-    <p>{comment.dislikes}</p>
-    <button onClick={this.dislike}>Dislike</button>
-    <p className="voteTag">{comment._id}</p>
-    </div>
+ 
     </div>
    </div>
     
@@ -340,29 +459,32 @@ yes = () => {
       <div className="col-2">
       </div>
 
-         <div className="col-4 scroll yays">
+         <div className="col-4 scroll">
       <h4 >Arguments For</h4>
       {this.state.comments.map(comment => 
 {
     return comment.attachment === this.state.billData.name && comment.vote === "yes" ?
     <div className="amendments green">
-    <p>{comment.name}</p>  
-    <p>{comment.text}</p>
+    <h4>{comment.name}</h4>  
+    <p >{comment.text}</p>
+    <p onClick={this.readLess} style={this.state.textStyle} >...Read Less</p>
     <div className="amendmentVotes">
     <div className="left">
-    <p>Likes</p>
-    <p>{comment.likes}</p>
-    <button onClick={this.like}>Like</button>
-    <p className="voteTag">{comment._id}</p>
-    </div>
-    
-    <div className="right">
     <p>Dislikes</p>
-    <p>{comment.dislikes}</p>
+    <p className="commentScore">{comment.dislikes}</p>
     <button onClick={this.dislike}>Dislike</button>
     <p className="voteTag">{comment._id}</p>
     
     </div>
+
+    <div className="right">
+    <p>Likes</p>
+    <p className="commentScore">{comment.likes}</p>
+    <button onClick={this.like}>Like</button>
+    <p className="voteTag">{comment._id}</p>
+    </div>
+    
+    
     </div>
    </div>
     
@@ -385,14 +507,14 @@ yes = () => {
       
    <div className="billComments">
 
-        
+        <div className="selectVote">
         <button onClick={this.showList}>Vote</button>
-        <ul style={this.state.style}>
+        <ul className="voteList" style={this.state.style}>
         <li onClick={this.no}>No</li>
         <li onClick={this.yes}>Yes</li>
         </ul>
-        <input  type="text" value={this.state.vote} />
-        <br />
+        <input className="commentVote" style={this.state.inputStyle} type="text" value={this.state.vote} />
+       </div>
         Name: <input className="commentName" onChange={this.handleInputChange} type="text" name="name"  /> <br />
         Leave a Comment: <input className="commentText" onChange={this.handleInputChange} type="text" name="text"  /> 
          <button className="commentButton" onClick={this.handleFormSubmit} >Submit Comment</button>

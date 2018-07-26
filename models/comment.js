@@ -6,6 +6,7 @@ const commentSchema = new Schema({
   text: { type: String, required: true },
   attachment: { type: String, required: true },
   type: { type: String, required: true },
+  summary: { type: String, required: true },
   likes: { type: Number, required: true },
   dislikes: { type: Number, required: true },
   popularity: { type: Number, required: true },

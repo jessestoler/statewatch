@@ -11,6 +11,7 @@ class State extends Component {
   state = {
     stateInfo: {},
     bills: []
+ 
   };
 
   componentDidMount() {
@@ -43,6 +44,7 @@ class State extends Component {
         <div>
           <Header
               houseDems={this.state.stateInfo.name} />
+        
         <div className="desktop row">
         
          <div className="col-3">
@@ -60,7 +62,7 @@ class State extends Component {
         height="100px"
         legend_toggle
       />
-         <p>Speaker of the House: {this.state.stateInfo.speaker}</p>
+         <p className="speaker">Speaker of the House: {this.state.stateInfo.speaker}</p>
          <p>Majority Leader: {this.state.stateInfo.houseMajority}</p>
          <p>Minority Leader: {this.state.stateInfo.houseMinority}</p>
          <Link to={"/reps/" + this.state.stateInfo._id}>  Find a Representative!
@@ -84,13 +86,7 @@ class State extends Component {
          <p>Democrats: {this.state.stateInfo.senateDems}</p>
          <p>Other: {this.state.stateInfo.senateOther}</p>
          <p>Republicans: {this.state.stateInfo.senateGOP}</p>
-         <p>Majority Leader: {this.state.stateInfo.senateMajority}</p>
-         <p>Minority Leader: {this.state.stateInfo.senateMinority}</p>
-         <Link to={"/senators/" + this.state.stateInfo._id}>  <li>Find a Senator!</li>
-           </Link>
-        
-       
-           <Chart
+         <Chart
         chartType="PieChart"
         data={[['Task', 'Hours per Day'],["Democrats", this.state.stateInfo.senateDems],["Other", this.state.stateInfo.senateOther],["Republicans", this.state.stateInfo.senateGOP]]}
         options={{"title":"Party Breakdown","pieHole":0.4,"is3D":true, "colors": ["blue", "gray", "red"]}}
@@ -99,49 +95,29 @@ class State extends Component {
         height="100px"
         legend_toggle
       />
+         <p className="speaker">Majority Leader: {this.state.stateInfo.senateMajority}</p>
+         <p>Minority Leader: {this.state.stateInfo.senateMinority}</p>
+         <Link to={"/senators/" + this.state.stateInfo._id}>  Find a Senator!
+           </Link>
+        
+       
+     
       
          </div>
          </div>
-         <div className="stateBlogs" >
-         <Link to={"/submit/" + this.state.stateInfo._id}> <p>Have a Story About the {this.state.stateInfo.name} State Legislature? Submit Here!</p></Link>
-           <Link to={"/stateblog/" + this.state.stateInfo._id}>  <p>Find Stories</p>
-           </Link>
-           </div>
-           <div className="billContainer">
-           <h2>Highlighted Legislation</h2>
-           <p>Click on any bill below to read, comment, and vote!</p>
-   {this.state.bills.map(bill => (
-     <Link to={"/bill/" + bill._id}> 
-     {bill.state === this.state.stateInfo.name && 
-            <Bills 
-            
-              key={Math.random() * 12}
-              name={bill.name}
-              image={bill.image}
-              sponsor={bill.sponsor}
-            />
-     }
-          </Link>
-     
-          ))}
-    
-</div>
-          
-
-     
-
         </div>
-        <div className="mobile row">
-        <div className="col-2">
-        
-        </div>
-        <div className="col-8">
+        <div className="mobile">
         <div className="row">
+       
+        <div className="col-2">
+      </div>
+      <div className="col-8">
+      <div className="row">
         <div className="col-12">
         <h4 className="breakdown mobileHouse">House Breakdown</h4>
         </div>
         </div>
-        <div className="row">
+      <div className="row">
         
         <div className="col-4 mobileParties">
          <h5>Democrats</h5>
@@ -221,6 +197,58 @@ class State extends Component {
          </div>
         
          </div>
+         </div>
+      <div className="col-2">
+      </div>
+        </div>
+</div>
+         <div className="stateBlogs" >
+         <Link to={"/submit/" + this.state.stateInfo._id}> <p>Have a Story About the {this.state.stateInfo.name} State Legislature? Submit Here!</p></Link>
+           <Link to={"/stateblog/" + this.state.stateInfo._id}>  <p>Find Stories</p>
+           </Link>
+           </div>
+           <div className="row">
+           <div className="col-1">
+           </div>
+           <div className="billContainer col-10">
+           <h2>Highlighted Legislation</h2>
+           <p>Click on any bill below to read, comment, and vote!</p>
+   {this.state.bills.map(bill => (
+     <Link to={"/bill/" + bill._id}> 
+     {bill.state === this.state.stateInfo.name && 
+            <Bills 
+            
+              key={Math.random() * 12}
+              name={bill.name}
+              image={bill.image}
+              sponsor={bill.sponsor}
+            />
+     }
+          </Link>
+     
+          ))}
+    
+</div>
+<div className="col-1">
+</div>     
+</div>
+     
+<Footer />
+        </div>
+        
+        
+      /*  <div className="mobile row">
+        <div className="col-2">
+        
+        </div>
+        <div className="col-8">
+      
+       
+         
+        
+       
+      
+       
 
          <div className="row">
          
@@ -254,10 +282,10 @@ class State extends Component {
          </div>
        
         </div>
-      
-        </div>
-        <Footer />
-        </div>
+          <div>
+        </div> 
+        </div>*/
+        
        
 
 

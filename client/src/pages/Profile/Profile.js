@@ -166,9 +166,9 @@ handleInputChange = event => {
         <img className="profileImage" src={this.state.person.image} />
         <div className="quickFacts">
         <h3>Quick Facts</h3>
-        <p>Political Party: {this.state.person.party}</p>
-        <p>First Year: {this.state.person.firstYear}</p>
-        <p>District: {this.state.person.district}  </p>
+        <p>Political Party: <span className="bold">{this.state.person.party}</span></p>
+        <p>First Year: <span className="bold">{this.state.person.firstYear}</span></p>
+        <p>District: <span className="bold">{this.state.person.district}</span>  </p>
        
 
         </div>
@@ -182,15 +182,20 @@ handleInputChange = event => {
         <input className="bioInput" defaultValue={this.state.person.bio} name="bio" onChange={this.handleInputChange} style={this.state.style} type="text" />
         <button onClick={this.submitEdit} style={this.state.style}>Done Editing</button>
           </div>
-          <div className="quickLinks">
-          <div className="left">
-          <Link to={"https://leg.colorado.gov/legislators/crisanta-duran"}>  Official Page
+          <div className="quickLinks row">
+          <div className="col-3">
+          </div>
+          <div className="col-3">
+          <Link to={"https://leg.colorado.gov/legislators/crisanta-duran"}> <p> Official Page </p>
            </Link>
            </div>
-           <div className="right">
-          <Link to={"https://twitter.com/crisantaduran"}>  Twitter
+           <div className="col-3">
+          <Link to={"https://twitter.com/crisantaduran"}> <p>  Twitter </p>
            </Link>
            </div>
+           <div className="col-3">
+          </div>
+          
           
             </div>
 
@@ -217,6 +222,10 @@ handleInputChange = event => {
 <button className="socialButton" onClick={this.submitSocial} style={this.state.socialStyle}>Done Editing</button>
 </div>
 
+</div>
+
+<div className="profileDropdown">
+<Dropdown />
 </div>
 
 <div className="profileFooter">

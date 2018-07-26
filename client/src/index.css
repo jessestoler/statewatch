@@ -1,8 +1,21 @@
 .amendments {
-  height: 220px;
+  border: 2px solid blue;
+  height: 350px;
   margin-bottom: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
   padding: 10px;
   
+}
+
+.amendments h4 {
+  color: blue;
+  font-style: oblique;
+  margin-bottom: 15px;
+}
+
+.amendmentVotes {
+  margin-top: 25px;
 }
 
 .billComments {
@@ -20,7 +33,7 @@
 }
 
 .billFeedback {
-  height: 300px;
+  height: 500px;
   margin-top: 35px;
   width: 100%;
 }
@@ -48,6 +61,7 @@
 }
 
 .billScore {
+  font-size: 180%;
   left: 18px;
   position: relative;
   top: 5px;
@@ -78,14 +92,17 @@
   color: black;
   font-family: 'Source Sans Pro', sans-serif;
   height: 205px;
-  margin-left: 40px;
+  margin-left: 8%;
+  margin-right: 8%;
   padding: 20px;
   width: 80%;
 }
 
 .blogList {
-  background-color: red;
+  background-color: rgb(236, 138, 138);
+  
   margin-left: 40px;
+  padding-bottom: 25px;
   
   width: 56%;
 }
@@ -105,6 +122,10 @@ body {
 .bodyInput {
   height: 500px;
   width: 75%;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 .breakdown {
@@ -128,7 +149,7 @@ body {
 }
 
 .cards {
-  border: 30px solid white;
+  border: 24px solid white;
   color: white;
   display: inline-block;
   margin-bottom: 20px;
@@ -155,10 +176,14 @@ body {
 .commentName {
   height: 25px;
   left: 215px;
+  
   position: absolute;
   width: 150px;
 }
 
+.commentScore {
+  font-weight: 800;
+}
 
 .commentSection {
   margin-left: 75px;
@@ -178,6 +203,13 @@ body {
   font-family: 'Noto Serif', serif;
 }
 
+.commentVote {
+  bottom: 28px;
+  left: 140px;
+  position: relative;
+  width: 100px;
+}
+
 .container {
   float: right;
 }
@@ -186,6 +218,7 @@ body {
 
 .content {
   background-color: white;
+  border: 1px solid rgb(131, 24, 24);
   margin-left: 15%;
   margin-right: 15%;
   padding: 5%;
@@ -314,6 +347,10 @@ body {
   font-weight: 550;
 }
 
+.indexDropdown {
+  display: none;
+}
+
 .indexFooter {
   bottom: 0px;
   margin-top: 530px;
@@ -383,12 +420,21 @@ body {
   display: none;
 }
 
+.mobileFeedback {
+  display: none;
+  margin-top: 35px;
+}
+
 .mobileHouse {
   text-align: center;
 }
 
 .mobileParties {
   text-align: center;
+}
+
+.nays {
+  max-height: 350px;
 }
 
 .noArticles {
@@ -400,6 +446,11 @@ body {
 
 .none {
   display: none;
+}
+
+.profileDropdown {
+  display: none;
+  margin-top: 45px;
 }
 
 .profileFooter {
@@ -416,7 +467,8 @@ body {
 }
 
 .quickFacts {
-  background-color: lightgray;
+  background-color: white;
+  border: 2px solid rgb(49, 159, 223);
   left: 320px;
   padding: 10px;
   position: absolute;
@@ -429,14 +481,18 @@ body {
 }
 
 .quickLinks {
-  background-color: purple;
+  background-color: rgb(49, 159, 223);
+  
   height: 45px;
   line-height: 45px;
-  margin-left: 5%;
-  margin-right: 5%;
+  
+  
   padding-left: 25px;
+  width: 125%
+}
 
-  width: 60%
+.quickLinks p {
+  color: rgb(116, 7, 7);
 }
 
 .red {
@@ -449,8 +505,13 @@ body {
 
 .scroll {
   border: 4px solid gray;
+  
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.selectVote {
+  margin-bottom: 25px;
 }
 
 .senate {
@@ -491,6 +552,12 @@ body {
   width: 100%;
 }
 
+.speaker {
+
+  margin-top: 20px;
+}
+
+
 .sponsor {
   color: black;
   left: 35px;
@@ -503,12 +570,13 @@ body {
   background-color: black;
   height: 90px;
   margin-bottom: 50px;
-  margin-left: 40px;
   padding-left: 15px;
   padding-top: 10px; 
-  margin-right: 40px;
+
   margin-top: 30px;
-  width: 100%;
+  width: 120%;
+  
+ 
 }
 
 .stateBlogs a {
@@ -547,6 +615,7 @@ body {
   margin-top: 20px;
 }
 
+
 .vote {
  
   margin: 25px 35% 135px 35%;
@@ -554,6 +623,15 @@ body {
 
 .voteLeft {
   float: left;
+}
+
+.voteList {
+  background-color: white;
+  right: 25px;
+  list-style-type: none;
+  position: relative;
+  top: 15px;
+  width: 100px;
 }
 
 .voteRight {
@@ -581,6 +659,10 @@ body {
 }
 
 @media screen and (max-width: 640px) {
+  .billFeedback {
+    display: none;
+  }
+  
   body {
     background-color: pink;
   }
@@ -601,6 +683,12 @@ body {
     display: block;
   }
 
+  .indexDropdown {
+    display: block;
+    margin-left: 20%;
+    margin-top: 35px;
+  }
+
   .mobile {
     display: block;
   }
@@ -610,6 +698,15 @@ body {
     margin-left: 40%;
     margin-right: 40%;
     margin-top: 10px;
+  }
+
+  .mobileFeedback {
+    display: block;
+  }
+
+  .profileDropdown {
+    display: block;
+    margin-left: 25%;
   }
 
   .quickFacts {

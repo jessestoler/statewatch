@@ -13,7 +13,15 @@ class Blog extends Component {
     blog: {},
     name: "",
     text: "",
-   
+    block: {
+      display: "block"
+    },
+    none: {
+      display: "none"
+    },
+    commentStyle: {
+      display: "none"
+    },
     comments: []
     
   };
@@ -35,6 +43,7 @@ class Blog extends Component {
         text: this.state.text,
         attachment: this.state.blog.title,
         type: "blog",
+        summary: this.state.text.substring(0, 100),
         likes: 0,
         dislikes: 0,
         popularity: 0,
@@ -106,7 +115,6 @@ class Blog extends Component {
 };
 
 
-
   render() {
     return (
       <div>
@@ -116,8 +124,8 @@ class Blog extends Component {
               <Dropdown />
               </div>
    <div>
-     <p className="byline">By {this.state.blog.author}</p>
-     <p className="content">{this.state.blog.text}</p>
+     <p className="byline" >By {this.state.blog.author}</p>
+     <p  className="content">{this.state.blog.text}</p>
      <div className="vote">
      <p className="voteLeft">Likes: {this.state.blog.likes}</p>
       <button className="voteLeft" onClick={this.upvote}>Like</button>
@@ -130,8 +138,9 @@ class Blog extends Component {
 {
     return comment.attachment === this.state.blog.title ?
     <div className="feedback">
-    <p>{comment.name}</p>  
-    <p>{comment.text}</p>
+    <p onClick={this.stuff}>{comment.name}</p>  
+    <p >{comment.text}</p>
+
  
    </div>
     
