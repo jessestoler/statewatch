@@ -1173,50 +1173,59 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/deliverance";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
-
 const stateSeed = [
   {
-    name: "Arrival",
-    sponsor: "Denis Villeneuve",
-    image: "https://img.clipartxtras.com/29b517d4568908e13eb39a14cb5ac9a9_coloring-page-of-shaking-hands-between-two-people-coloring-point-shaking-hands-drawing-kids_500-430.jpeg",
-    summary: "A linguist attempts to establish communication with aliens",
-    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
-    state: "Colorado",
-    likes: "0",
-    dislikes: "0",
-    popularity: "0",
-    votes: "0"
+    name: "Mac McCutcheon",
+    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+    firstYear: 1,
+    state: "Wyoming",
+    party: "Republican",
+    chamber: "House",
+    district: "2nd",
+    bio: "No information yet. Click on the edit button to contribute!",
+    economy: "No information here yet. Be the first to contribute!",
+    environment: "No information here yet. Be the first to contribute!",
+    social: "No information here yet. Be the first to contribute!",
+    committees: "Judiciary"
+  
   },
   {
-    name: "Get Out",
-    sponsor: "Jordan Peele",
-    image: "https://media.istockphoto.com/photos/dollar-sign-isolated-picture-id652872508?k=6&m=652872508&s=612x612&w=0&h=v-pgy795Ht-pbI2LSBwv9yQ8n0XPnaxPV7fyiPJ9B3A=",
-    summary: "A black man meets his white girlfriend's family.",
-    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
-    state: "Colorado",
-    likes: "0",
-    dislikes: "0",
-    popularity: "0",
-    votes: "0"
+    name: "Nathaniel Ledbetter",
+    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+    firstYear: 2,
+    state: "Wyoming",
+    party: "Republican",
+    chamber: "Senate",
+     district: "3rd",
+     bio: "No information yet. Click on the edit button to contribute!",
+     economy: "No information here yet. Be the first to contribute!",
+     environment: "No information here yet. Be the first to contribute!",
+     social: "No information here yet. Be the first to contribute!",
+     committees: "Judiciary"
+    
   },
-  {
-    name: "Son of Saul",
-    sponsor: "Laszlo Nemes",
-    image: "http://getdrawings.com/image/earth-planet-drawing-51.png",
-    summary: "A prisoner in a concentration camp seeks a proper burial for a child.",
-    text: "She hurries from the house, wearing a coat too heavy for the weather. It is 1941. Another war has begun. She has left a note for Leonard, and another for Vanessa. She walks purposefully toward the river, certain of what she‘ll do, but even now she is almost distracted by the sight of the downs, the church, and a scattering of sheep, incandescent, tinged with a faint hint of sulfur, grazing under a darkening sky. She pauses, watching the sheep and the sky, then walks on. The voices murmur behind her; bombers drone in the sky, though she looks for the planes and can‘t see them. She walks past one of the farm workers (is his name John?), a robust, small-headed man wearing a potato-colored vest, cleaning the ditch that runs through the osier bed. He looks up at her, nods, looks down again into the brown water. As she passes him on her way to the river she thinks of how successful he is, how fortunate, to be cleaning a ditch in an osier bed. She herself has failed. She is not a writer at all, really; she is merely a gifted eccentric.",
-    state: "Colorado",
-    likes: "0",
-    dislikes: "0",
-    popularity: "0",
-    votes: "0"
-  }
 
+ 
+  {
+    name: "Virginia Woolf",
+    image: "https://assets3.thrillist.com/v1/image/1667077/size/tmg-article_default_mobile;jpeg_quality=20.jpg",
+    firstYear: 3,
+    state: "Wyoming",
+    party: "Democrat",
+    chamber: "House",
+    district: "3rd",
+    bio: "No information yet. Click on the edit button to contribute!",
+    economy: "No information here yet. Be the first to contribute!",
+    environment: "No information here yet. Be the first to contribute!",
+    social: "No information here yet. Be the first to contribute!",
+    committees: "Judiciary"
+    
+  }
 ];
 
-db.Bill
+db.Person
   .remove({})
-  .then(() => db.Bill.collection.insertMany(stateSeed))
+  .then(() => db.Person.collection.insertMany(stateSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -1227,7 +1236,3 @@ db.Bill
   });
 
 
-app.listen(PORT, function() {
-    console.log("App running on port " + PORT + "!");
-    
-  });
