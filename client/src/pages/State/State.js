@@ -164,7 +164,13 @@ class State extends Component {
         
          </div>
          <div className="row">
+         <div className="col-8 flagHeight">
          <img src={this.state.stateInfo.flag} /> 
+         </div>
+         
+         <div className="col-4">
+         </div>
+
          </div>
          <div className="row">
         
@@ -249,6 +255,7 @@ class State extends Component {
               key={Math.random() * 12}
               name={bill.name}
               image={bill.image}
+              summary={bill.summary}
               sponsor={bill.sponsor}
             />
      }

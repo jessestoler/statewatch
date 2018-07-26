@@ -9,7 +9,10 @@ const Bills = props => (
      
             
                 <p className="billName">{props.name}</p>  
-                
+              
+                <p className="billSummary">{props.summary}</p>
+               
+             
                 <img className="billImage" src={props.image} />
                 <div className="sponsor">
                 <h6>Main Sponsor(s):</h6>
