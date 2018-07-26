@@ -126,19 +126,29 @@ class Blog extends Component {
    <div>
      <p className="byline" >By {this.state.blog.author}</p>
      <p  className="content">{this.state.blog.text}</p>
-     <div className="vote">
-     <p className="voteLeft">Likes: {this.state.blog.likes}</p>
-      <button className="voteLeft" onClick={this.upvote}>Like</button>
-      <p className="voteRight">Dislikes: {this.state.blog.dislikes}</p>
-      <button className="voteRight" onClick={this.downvote}>Dislike</button>
+      <div className="row">
+      <div className="col-4">
       </div>
+      <div className="col-3">
+      <p>Likes: {this.state.blog.likes}</p>
+      <button onClick={this.upvote}>Like</button>
+      </div>
+      <div className="col-3">
+      <p >Dislikes: {this.state.blog.dislikes}</p>
+      <button onClick={this.downvote}>Dislike</button>
+      </div>
+      <div className="col-2">
+      </div>
+      </div>
+
+   
     <div className="commentSection">
      <p className="commentTotal">This post has {this.state.comments.filter(comment => comment.attachment == this.state.blog.title).length } {this.state.comments.filter(comment => comment.attachment == this.state.blog.title).length === 1? 'comment' : 'comments'} </p>
      {this.state.comments.map(comment => 
 {
     return comment.attachment === this.state.blog.title ?
     <div className="feedback">
-    <p onClick={this.stuff}>{comment.name}</p>  
+    <h4 >{comment.name}</h4>  
     <p >{comment.text}</p>
 
  
@@ -159,6 +169,9 @@ class Blog extends Component {
         Leave a Comment: <input className="commentText" onChange={this.handleInputChange} type="text" name="text"  /> 
          <button className="commentButton" onClick={this.handleFormSubmit} >Submit Comment</button>
          </div>
+     </div>
+     <div className="blogDropdown">
+     <Dropdown />
      </div>
 <div className="blogFooter">
 <Footer />

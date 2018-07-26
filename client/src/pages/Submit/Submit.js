@@ -27,6 +27,7 @@ class Submit extends Component {
       
   }
 
+
   handleFormSubmit = event => {
     event.preventDefault();
     
@@ -74,7 +75,7 @@ class Submit extends Component {
            <div className="sidebar submitSidebar">
               <Dropdown />
               </div>
-        <div className="submitContainer" >
+        <div className="submitContainer" style={this.state.image} >
        
           <h2>Write Your Story Here!</h2>
        <p> Title:</p>

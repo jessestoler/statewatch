@@ -98,8 +98,12 @@
   width: 80%;
 }
 
+.blogDropdown {
+  display: none;
+}
+
 .blogList {
-  background-color: rgb(236, 138, 138);
+  background-color: #fd2146e5;
   
   margin-left: 40px;
   padding-bottom: 25px;
@@ -218,7 +222,7 @@ body {
 
 .content {
   background-color: white;
-  border: 1px solid rgb(131, 24, 24);
+  border: 2px solid rgb(131, 24, 24);
   margin-left: 15%;
   margin-right: 15%;
   padding: 5%;
@@ -229,8 +233,8 @@ body {
 .dropdown {
   background-color: white;
   border: 3px solid gray;
-  bottom: 30px;
-  left: 35px;
+  bottom: 47px;
+  left: -63px;
   max-height: 100px;
   overflow: hidden;
   overflow-y: scroll;
@@ -250,11 +254,13 @@ body {
   list-style-type: none;
 }
 
+.dropdownState {
+  display: none;
+  margin-left: 170px;
+}
+
 .dropdownText {
-  bottom: 30px;
   font-weight: 550;
-  left: 35px;
-  position: relative;
 
 }
 
@@ -279,11 +285,31 @@ body {
 }
 
 .feedback {
+  background-color: white;
   border: 3px solid black;
   margin-bottom: 15px;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
   padding: 3%;
-  pointer-events: none;
+
   width: 40%;
+}
+
+.feedback h4 {
+  color: blue;
+  font-style: oblique;
+  margin-bottom: 15px;
+}
+
+.feedback p {
+  margin-left: 20px;
+  margin-top: 25px;
+  
+}
+
+.find {
+  line-height: 65px;
 }
 
 .footer {
@@ -323,13 +349,13 @@ body {
 }
 
 .header {
-  background-color: lightblue;
+  background-color: white;
   color: plum;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 250%;
   height: 75px;
-  line-height: 75px;
   margin-right: 40px;
+  padding-top: 10px;
   position: fixed;
   text-align: center;
   top: 30px;
@@ -448,6 +474,15 @@ body {
   display: none;
 }
 
+.or {
+  color: rgb(226, 98, 98);
+  font-size: 250%;
+}
+
+.pitch {
+  line-height: 35px;
+}
+
 .profileDropdown {
   display: none;
   margin-top: 45px;
@@ -535,6 +570,12 @@ body {
 
 }
 
+.sidebar a {
+  font-family: 'Actor', sans-serif;
+  font-size: 125%;
+
+}
+
 .social {
   margin-left: -40px;
   width: 143%;
@@ -567,13 +608,16 @@ body {
 }
 
 .stateBlogs {
-  background-color: black;
+  background-color: rgb(49, 159, 223);
   height: 90px;
+
   margin-bottom: 50px;
+  margin-top: 30px;
   padding-left: 15px;
   padding-top: 10px; 
 
-  margin-top: 30px;
+  
+  text-align: center;
   width: 120%;
   
  
@@ -581,6 +625,8 @@ body {
 
 .stateBlogs a {
   color: orange;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 135%;
 }
 
 .stateDropdown {
@@ -603,7 +649,7 @@ body {
 }
 
 .submitContainer {
-  background-color: #eb4444bb;
+  background-color: #7eb9e9bb;
   margin-left: 130px;
   padding-left: 35px;
   padding-top: 15px;
@@ -647,8 +693,17 @@ body {
     background-color: mediumspringgreen;
   }
 
+  .content {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
   .editSocial {
     left: 33%;
+  }
+
+  .pitch {
+    line-height: 20px;
   }
 
   .quickFacts {
@@ -662,6 +717,11 @@ body {
   .billFeedback {
     display: none;
   }
+
+  .blogDropdown {
+    display: block;
+    margin-left: 140px;
+  }
   
   body {
     background-color: pink;
@@ -671,12 +731,25 @@ body {
     width: 170px;
   }
 
+  .commentButton {
+   
+   margin-left: 340px;
+   position: relative;
+   top: 25px;
+  }
+
+
+
   .desktop {
     display: none;
   }
 
   .editSocial {
     left: 26%;
+  }
+
+  .find {
+    line-height: 30px;
   }
 
   .groupDropdown {
@@ -704,6 +777,10 @@ body {
     display: block;
   }
 
+  .pitch {
+    line-height: 15px;
+  }
+
   .profileDropdown {
     display: block;
     margin-left: 25%;
@@ -721,6 +798,14 @@ body {
 
   .sidebar {
     display: none;
+  }
+
+  .stateBlogs {
+    font-size: 79%;
+  }
+
+  .dropdownState {
+    display: block;
   }
 
   .summary {

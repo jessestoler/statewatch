@@ -4,7 +4,7 @@ import API from "../../utils/API";
 
 class Dropdown extends Component {
   state = {
-    books: [],
+    states: [],
   
     style: {
       display: "none"
@@ -12,15 +12,16 @@ class Dropdown extends Component {
     styleTwo: {
       display: "block"
     }
+
      };
     
 
-  componentDidMount() { this.loadBooks();  }
+  componentDidMount() { this.loadStates();  }
 
-  loadBooks = () => {
+  loadStates = () => {
     API.getStates()
       .then(res =>
-        this.setState({ books: res.data})
+        this.setState({ states: res.data})
       )
       .catch(err => console.log(err));
 
@@ -58,7 +59,6 @@ class Dropdown extends Component {
 
   render() {
 
-   const a = "hi";
    
   
 
@@ -66,13 +66,14 @@ class Dropdown extends Component {
     return (
       <div >
         <div>
-    
+        <p className="dropdownText" style={this.state.styleTwo} >Select State</p>
     <button className="dropdownButton" onClick={this.showList} >&#9660;</button> 
-    <p className="dropdownText" style={this.state.styleTwo} >Select State</p>
+    
     </div>
      <br />
+     <br />
       <ul className="dropdown" style={this.state.style}>
-      {this.state.books.map(a => (
+      {this.state.states.map(a => (
           <Link to={"/" + a._id}>  <li onClick={this.refresh} className="dropdownItems">{a.name}</li>
            </Link>
           ))}

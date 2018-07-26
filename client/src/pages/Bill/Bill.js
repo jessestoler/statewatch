@@ -80,7 +80,7 @@ class Bill extends Component {
   };
 
   loadComments = () => {
-    API.getComments()
+    API.getCommentVotes()
       .then(res =>
         this.setState({ comments: res.data})
       )

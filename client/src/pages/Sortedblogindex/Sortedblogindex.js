@@ -32,7 +32,7 @@ class Blogindex extends Component {
   
 
   loadBlogs = () => {
-    API.getVotes()
+    API.getBlogVotes()
       .then(res =>
         this.setState({ votes: res.data})
       )

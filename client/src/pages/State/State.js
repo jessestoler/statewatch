@@ -197,15 +197,43 @@ class State extends Component {
          </div>
         
          </div>
+         <div className="row">
+         <div className="col-4">
+         </div>
+        
+           <div className="col-4">
+           <Link to={"/reps/" + this.state.stateInfo._id}>  Find a Senator!
+           </Link>
+         </div>
+         <div className="col-4">
+         </div>
+           
+         </div>
          </div>
       <div className="col-2">
       </div>
         </div>
 </div>
-         <div className="stateBlogs" >
+         <div className="row stateBlogs" >
+         <div className="col-2">
+         </div>
+         <div className="col-3 pitch">
          <Link to={"/submit/" + this.state.stateInfo._id}> <p>Have a Story About the {this.state.stateInfo.name} State Legislature? Submit Here!</p></Link>
-           <Link to={"/stateblog/" + this.state.stateInfo._id}>  <p>Find Stories</p>
+
+         
+         </div>
+         <div className="col-1">
+         <p className="or">OR</p>
+         </div>
+         <div className="col-2 find">
+         <Link to={"/stateblog/" + this.state.stateInfo._id}>  <p>Find Stories</p>
            </Link>
+         </div>
+         <div className="col-4">
+         </div>
+         
+        
+           
            </div>
            <div className="row">
            <div className="col-1">
@@ -232,59 +260,13 @@ class State extends Component {
 <div className="col-1">
 </div>     
 </div>
+<div className="dropdownState">
+<Dropdown />
+</div>
      
 <Footer />
         </div>
         
-        
-      /*  <div className="mobile row">
-        <div className="col-2">
-        
-        </div>
-        <div className="col-8">
-      
-       
-         
-        
-       
-      
-       
-
-         <div className="row">
-         
-         <div className="col-12 stateBlogs" >
-         <Link to={"/submit/" + this.state.stateInfo._id}> <p>Have a Story About the {this.state.stateInfo.name} State Legislature? Submit Here!</p></Link>
-           <Link to={"/stateblog/" + this.state.stateInfo._id}>  <p>Find Stories</p>
-           </Link>
-           </div>
-         
-         </div>
-         <div className="row">
-         <div className="billContainer col-12">
-           <h2>Highlighted Legislation</h2>
-           <p>Click on any bill below to read, comment, and vote!</p>
-   {this.state.bills.map(bill => (
-     <Link to={"/bill/" + bill._id}> 
-     {bill.state === this.state.stateInfo.name && 
-            <Bills 
-            
-              key={Math.random() * 12}
-              name={bill.name}
-              image={bill.image}
-              sponsor={bill.sponsor}
-            />
-     }
-          </Link>
-     
-          ))}
-    
-</div>
-         </div>
-       
-        </div>
-          <div>
-        </div> 
-        </div>*/
         
        
 

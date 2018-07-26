@@ -5,6 +5,10 @@ router.route("/")
   .get(commentController.findAll)
   .post(commentController.create);
 
+  router.route("/votes")
+  .get(commentController.findAllByVotes)
+  .post(commentController.create);
+
 router
   .route("/:id")
   .get(commentController.findById)
