@@ -55,9 +55,10 @@
 .bills {
   background-color: white;
   display: inline-block;
-  height: 415px;
+  height: 430px;
   margin: 35px;
-  width: 250px;
+  width: 26%;
+  
 }
 
 .billScore {
