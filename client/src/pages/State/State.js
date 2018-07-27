@@ -242,9 +242,8 @@ class State extends Component {
            
            </div>
            <div className="row">
-           <div className="col-1">
-           </div>
-           <div className="billContainer col-10">
+           
+           <div className="billContainer col-12">
            <h2>Highlighted Legislation</h2>
            <p>Click on any bill below to read, comment, and vote!</p>
    {this.state.bills.map(bill => (
@@ -264,8 +263,7 @@ class State extends Component {
           ))}
     
 </div>
-<div className="col-1">
-</div>     
+   
 </div>
 <div className="dropdownState">
 <Dropdown />
