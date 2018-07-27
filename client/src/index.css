@@ -701,9 +701,6 @@ body {
 }
 
 @media screen and (max-width: 980px) {
-  body {
-    background-color: mediumspringgreen;
-  }
 
   .content {
     margin-left: 20%;
@@ -735,9 +732,6 @@ body {
     margin-left: 140px;
   }
   
-  body {
-    background-color: pink;
-  }
 
   .bodyInput {
     width: 170px;
