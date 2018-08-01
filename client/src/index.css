@@ -111,7 +111,7 @@
 }
 
 .blogList {
-  background-color: #fd2146e5;
+  background-color: #ec4a65e5;
   
   margin-left: 40px;
   padding-bottom: 25px;
@@ -125,7 +125,7 @@
 
 
 body {
-  background-color: rgb(226, 193, 92);
+  background-color: white;
   font-family: sans-serif;
   margin-top: 120px;
   
@@ -361,10 +361,9 @@ body {
 }
 
 .header {
-  background-color: white;
-  color: plum;
+  background-color: rgba(213, 226, 31, 0.575);
+  color: rgb(18, 103, 182);
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 250%;
   height: 75px;
   margin-right: 40px;
   padding-top: 10px;

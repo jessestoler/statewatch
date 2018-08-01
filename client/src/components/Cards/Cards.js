@@ -1,11 +1,11 @@
 import React from 'react';
 
 const blue = {
-    backgroundColor: "blue"
+    backgroundColor: "lightblue"
   };
 
 const red = {
-    backgroundColor: "red"
+    backgroundColor: "rgb(204, 51, 51)"
 };
 
 
